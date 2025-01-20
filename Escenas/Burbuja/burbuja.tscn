@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3f5uesdnb1oh"]
+
+[ext_resource type="Script" path="res://Escenas/Burbuja/burbuja.gd" id="1_e2rqe"]
+[ext_resource type="Texture2D" uid="uid://d2eydgtglrgyt" path="res://icon.svg" id="2_cyelx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vo11m"]
+radius = 48.0937
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5rro"]
+radius = 58.0345
+
+[node name="Burbuja" type="CharacterBody2D"]
+script = ExtResource("1_e2rqe")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-2, -5)
+texture = ExtResource("2_cyelx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vo11m")
+
+[node name="detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_x5rro")
+
+[node name="ContHabi" type="Timer" parent="."]
+
+[node name="posProtec" type="Node2D" parent="."]
+
+[node name="1" type="Marker2D" parent="posProtec"]
+position = Vector2(-126, -114)
+
+[node name="2" type="Marker2D" parent="posProtec"]
+position = Vector2(-2, -146)
+
+[node name="3" type="Marker2D" parent="posProtec"]
+position = Vector2(116, -107)
+
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
+[connection signal="timeout" from="ContHabi" to="." method="_on_cont_habi_timeout"]

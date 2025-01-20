@@ -1,0 +1,68 @@
+extends CharacterBody2D
+
+
+var objeto1
+var objeto2
+var objeto3
+
+
+var objetosDeProteccion = {
+	"roca" : 0,
+	"madera": 0
+}
+
+var habilidad = 0
+
+const SPEED = 550
+
+
+
+func _physics_process(delta):
+	if habilidad > 0 :
+		if Input.is_action_just_pressed("ui_accept"):
+			GlovalVar.grupo = "objetos"
+			$ContHabi.wait_time = 4
+			$ContHabi.start(4)
+			habilidad -= 1
+
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+
+
+
+func recolectarProtector(item : String):
+	if item == "roca":
+		objetosDeProteccion.roca += 1
+
+#nada
+func spawnObjetos():
+	for i in 3:
+		var queObjeto = randi_range(0,3)
+		var objeto = objeto1
+	
+
+
+func _on_detector_body_entered(body):
+	# obtener habilidad
+	if body.is_in_group("habilidad"):
+		habilidad += 1
+
+	#recolectar protecciones
+	if body.is_in_group("objetos"):
+		recolectarProtector(body.item)
+		body.queue_free()
+
+	# derota
+	if body.is_in_group("enemigo"):
+		self.queue_free()
+
+
+func _on_cont_habi_timeout():
+	GlovalVar.grupo = "enemigo"
+	$ContHabi.stop()
+

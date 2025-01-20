@@ -13,3 +13,11 @@ config_version=5
 config/name="Global Jam 2025 2l"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlovalVar="*res://GlobalVar/GlovalVar.gd"
+
+[display]
+
+window/stretch/mode="viewport"

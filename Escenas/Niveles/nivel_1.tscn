@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj57auvpy6vbb"]
+
+[ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_h3hml"]
+[ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="1_jm478"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
+size = Vector2(58, 996)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms0yl"]
+size = Vector2(64, 998)
+
+[node name="Nivel1" type="Node2D"]
+script = ExtResource("1_h3hml")
+
+[node name="Burbuja" parent="." instance=ExtResource("1_jm478")]
+position = Vector2(567, 566)
+
+[node name="tiempoSpawn" type="Timer" parent="."]
+
+[node name="instanObj" type="Node2D" parent="."]
+position = Vector2(11, -371)
+
+[node name="Der" type="Marker2D" parent="instanObj"]
+position = Vector2(1100, 0)
+
+[node name="Izq" type="Marker2D" parent="instanObj"]
+
+[node name="bordes" type="Node2D" parent="."]
+
+[node name="der" type="StaticBody2D" parent="bordes"]
+position = Vector2(1156, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/der"]
+position = Vector2(19, 277)
+shape = SubResource("RectangleShape2D_3iakh")
+
+[node name="izq" type="StaticBody2D" parent="bordes"]
+position = Vector2(-43, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/izq"]
+position = Vector2(22, 280)
+shape = SubResource("RectangleShape2D_ms0yl")
+
+[connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
