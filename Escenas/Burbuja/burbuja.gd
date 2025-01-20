@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
 
-var objeto1
-var objeto2
-var objeto3
+var roca
+var madera
+var piedra
 
 
 var objetosDeProteccion = {
 	"roca" : 0,
-	"madera": 0
+	"madera": 0,
+	"piedra": 0
 }
 
 var habilidad = 0
@@ -39,12 +40,35 @@ func recolectarProtector(item : String):
 	if item == "roca":
 		objetosDeProteccion.roca += 1
 
-#nada
-func spawnObjetos():
-	for i in 3:
-		var queObjeto = randi_range(0,3)
-		var objeto = objeto1
+var objetosInstanciados = 0
+
+func _ready():
+	# Instanciar aleatoriamente 3 objetos de protección cuando inicia el juego
+	while objetosInstanciados < 3:
+		var objetoAleatorio = obtener_objeto_aleatorio()
+		if objetoAleatorio:
+			var instancia = objetoAleatorio.instance()
+			# Ajustar posición aleatoria dentro de la escena
+			instancia.position = Vector2(randf_range(100, 800), randf_range(100, 600))
+			add_child(instancia)
+			objetosInstanciados += 1
+
+func obtener_objeto_aleatorio() -> PackedScene:
+	# Lista de objetos disponibles
+	var objetosDisponibles = []
 	
+	if objetosDeProteccion["roca"] == 0:
+		objetosDisponibles.append(roca)
+	if objetosDeProteccion["madera"] == 0:
+		objetosDisponibles.append(madera)
+	if objetosDeProteccion["piedra"] == 0:
+		objetosDisponibles.append(piedra)
+	
+	# Elegir aleatoriamente un objeto de los disponibles
+	if objetosDisponibles.size() > 0:
+		return objetosDisponibles[randi() % objetosDisponibles.size()]
+	
+	return null
 
 
 func _on_detector_body_entered(body):
