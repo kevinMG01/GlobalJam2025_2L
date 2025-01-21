@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj57auvpy6vbb"]
+[gd_scene load_steps=7 format=3 uid="uid://dj57auvpy6vbb"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_h3hml"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="1_jm478"]
 [ext_resource type="PackedScene" uid="uid://bq1e3lp34fbde" path="res://Escenas/objetos/habilidad/habilidad.tscn" id="3_kmv7y"]
+[ext_resource type="PackedScene" uid="uid://c0exydsu1f8qw" path="res://Escenas/objetos/habilidad/escudo/escudo.tscn" id="4_xmtxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
 size = Vector2(58, 996)
@@ -44,5 +45,8 @@ shape = SubResource("RectangleShape2D_ms0yl")
 
 [node name="habilidad" parent="." instance=ExtResource("3_kmv7y")]
 position = Vector2(548, 38)
+
+[node name="escudo" parent="." instance=ExtResource("4_xmtxx")]
+position = Vector2(542, 100)
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]

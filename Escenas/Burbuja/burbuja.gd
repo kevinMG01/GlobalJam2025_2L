@@ -17,6 +17,14 @@ var habilidad = 0
 var SPEED = 550
 var habVeloc = 700
 
+var habRecolectada = {
+	'velocidad': false,
+	'escudo': false
+}
+
+
+func _ready():
+	activarHabilidad()
 
 func _physics_process(delta):
 	if habilidad > 0 :
@@ -31,10 +39,20 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	move_and_slide()
 
+func activarHabilidad():
+	if habRecolectada.escudo ==false:
+		$escudo.position = Vector2(0, 150)
+	if habRecolectada.escudo == true:
+		$escudo.position = Vector2(0,0)
+		print(habRecolectada.escudo)
 
+	if habRecolectada.velocidad ==false:
+		SPEED = 550
+	elif habRecolectada.velocidad ==true:
+		SPEED = habilidad
 
 func recolectarProtector(item : String):
 	if item == "roca":
@@ -62,15 +80,25 @@ func _on_detector_body_entered(body):
 		self.queue_free()
 
 	if body.is_in_group("velocidad"):
-		SPEED = habilidad
+		habRecolectada.velocidad = true
 		body.queue_free()
+		activarHabilidad()
 
 	if body.is_in_group("escudo"):
-		
+		habRecolectada.escudo = true
 		body.queue_free()
+		activarHabilidad()
 
 
 func _on_cont_habi_timeout():
 	GlovalVar.grupo = "enemigo"
 	$ContHabi.stop()
+
+
+
+func _on_escudo_body_entered(body):
+	if body.is_in_group("enemigo"):
+		habRecolectada.escudo = false
+		activarHabilidad()
+		body.queue_free()
 

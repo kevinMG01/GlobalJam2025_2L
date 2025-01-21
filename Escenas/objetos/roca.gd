@@ -16,7 +16,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta 
 
-
+	rotation_degrees += 1
 	#if velocity.length() > 0:
 		#velocity = velocity.normalized() * SPEED  
 	
