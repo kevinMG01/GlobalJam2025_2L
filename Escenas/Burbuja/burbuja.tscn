@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3f5uesdnb1oh"]
+[gd_scene load_steps=10 format=3 uid="uid://b3f5uesdnb1oh"]
 
 [ext_resource type="Script" path="res://Escenas/Burbuja/burbuja.gd" id="1_e2rqe"]
 [ext_resource type="Texture2D" uid="uid://gey1shr13pvv" path="res://Sprite/Burbuja/Nuevo Lienzo.png" id="2_y0knc"]
 [ext_resource type="Texture2D" uid="uid://cervny0lxm74u" path="res://Sprite/habilidad/Escudo-Photoroom.png" id="3_5bcw0"]
+[ext_resource type="AudioStream" uid="uid://cyqlof26be87q" path="res://sonidos/explociondeburbuja.mp3" id="4_t0h57"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo11m"]
 radius = 46.0109
@@ -84,6 +85,10 @@ texture = ExtResource("3_5bcw0")
 [node name="animacioEscudo" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_t0h57")
+volume_db = 15.0
 
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="timeout" from="ContHabi" to="." method="_on_cont_habi_timeout"]

@@ -20,7 +20,6 @@ func _ready():
 	$tiempoSpawn.start()
 	$temporizador.wait_time =tiempo
 	$temporizador.start()
-	
 
 
 func _physics_process(delta):
@@ -77,5 +76,4 @@ func _on_detener_viento_timeout():
 
 func _on_temporizador_timeout():
 	get_tree().paused = true
-	
-	pass
+

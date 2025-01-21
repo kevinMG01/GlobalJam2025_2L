@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj57auvpy6vbb"]
+[gd_scene load_steps=10 format=3 uid="uid://dj57auvpy6vbb"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_h3hml"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="1_jm478"]
 [ext_resource type="PackedScene" uid="uid://bq1e3lp34fbde" path="res://Escenas/objetos/habilidad/habilidad.tscn" id="3_kmv7y"]
 [ext_resource type="PackedScene" uid="uid://c0exydsu1f8qw" path="res://Escenas/objetos/habilidad/escudo/escudo.tscn" id="4_xmtxx"]
 [ext_resource type="Texture2D" uid="uid://qfg1qkintpch" path="res://Sprite/fondos/fondo2025.png" id="5_oaqto"]
+[ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="6_kqpko"]
+[ext_resource type="PackedScene" uid="uid://2ds52qtg13pp" path="res://Escenas/carteles/derota.tscn" id="7_0m4y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
 size = Vector2(70, 1368)
@@ -21,7 +23,7 @@ scale = Vector2(1.01, 1.01)
 texture = ExtResource("5_oaqto")
 
 [node name="Burbuja" parent="." instance=ExtResource("1_jm478")]
-position = Vector2(567, 566)
+position = Vector2(640, 620)
 
 [node name="tiempoSpawn" type="Timer" parent="."]
 
@@ -71,6 +73,12 @@ offset_bottom = 40.0
 theme_override_colors/font_color = Color(0, 0, 0, 0.937255)
 theme_override_font_sizes/font_size = 23
 text = "tiempo"
+
+[node name="fondo" type="AudioStreamPlayer2D" parent="."]
+
+[node name="victoria" parent="." instance=ExtResource("6_kqpko")]
+
+[node name="derota" parent="." instance=ExtResource("7_0m4y4")]
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
