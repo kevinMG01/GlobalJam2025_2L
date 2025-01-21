@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0exydsu1f8qw"]
+
+[ext_resource type="Script" path="res://Escenas/objetos/habilidad/escudo/escudo.gd" id="1_a62t1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5fmk"]
+radius = 29.2746
+
+[node name="escudo" type="CharacterBody2D" groups=["escudo"]]
+script = ExtResource("1_a62t1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["escudo"]]
+shape = SubResource("CircleShape2D_w5fmk")

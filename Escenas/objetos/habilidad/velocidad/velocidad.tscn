@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwnuad631wv7"]
+
+[ext_resource type="Script" path="res://Escenas/objetos/habilidad/velocidad/velocidad.gd" id="1_bwntp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c44jy"]
+radius = 27.0185
+
+[node name="velocidad" type="CharacterBody2D" groups=["velocidad"]]
+script = ExtResource("1_bwntp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c44jy")

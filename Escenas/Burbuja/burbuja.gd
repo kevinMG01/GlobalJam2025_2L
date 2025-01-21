@@ -14,8 +14,8 @@ var objetosDeProteccion = {
 var cantidadObjetos = objetosDeProteccion.roca + objetosDeProteccion.madera + objetosDeProteccion.piedra
 var habilidad = 0
 
-const SPEED = 550
-
+var SPEED = 550
+var habVeloc = 700
 
 
 func _physics_process(delta):
@@ -50,6 +50,7 @@ func _on_detector_body_entered(body):
 	# obtener habilidad
 	if body.is_in_group("habilidad"):
 		habilidad += 1
+		body.queue_free()
 
 	#recolectar protecciones
 	if body.is_in_group("objetos"):
@@ -59,6 +60,14 @@ func _on_detector_body_entered(body):
 	# derota
 	if body.is_in_group("enemigo"):
 		self.queue_free()
+
+	if body.is_in_group("velocidad"):
+		SPEED = habilidad
+		body.queue_free()
+
+	if body.is_in_group("escudo"):
+		
+		body.queue_free()
 
 
 func _on_cont_habi_timeout():
