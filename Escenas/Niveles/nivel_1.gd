@@ -36,3 +36,23 @@ func _on_tiempo_spawn_timeout():
 	var tim = randf_range(0.5, 1.3)
 	$tiempoSpawn.wait_time = tim
 	
+
+
+func _on_viento_timeout():
+	GlovalVar.viento = true
+	var v = randi_range(1, 2)
+	if v == 1:
+		GlovalVar.vientoIzqDer = true
+	elif v == 2:
+		GlovalVar.vientoIzqDer = false
+			
+	$detenerViento.wait_time = 3
+	$detenerViento.start()
+
+
+
+
+func _on_detener_viento_timeout():
+	GlovalVar.viento = false
+	$detenerViento.stop()
+	pass # Replace with function body.

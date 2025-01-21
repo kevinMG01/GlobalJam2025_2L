@@ -19,8 +19,11 @@ func _physics_process(delta):
 	rotation_degrees += 1
 	#if velocity.length() > 0:
 		#velocity = velocity.normalized() * SPEED  
-	
-	
+	if GlovalVar.viento == true:
+		if GlovalVar.vientoIzqDer == true:
+			velocity.x += 3
+		if GlovalVar.vientoIzqDer == false:
+			velocity.x -= 3
 
 	move_and_slide()
 

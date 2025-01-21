@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func activarHabilidad():
 	if habRecolectada.escudo ==false:
-		$escudo.position = Vector2(0, 150)
+		$escudo.position = Vector2(0, 200)
 	if habRecolectada.escudo == true:
 		$escudo.position = Vector2(0,0)
 		print(habRecolectada.escudo)

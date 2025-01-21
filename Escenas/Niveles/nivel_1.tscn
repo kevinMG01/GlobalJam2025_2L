@@ -33,7 +33,7 @@ position = Vector2(1100, 0)
 position = Vector2(1156, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/der"]
-position = Vector2(19, 277)
+position = Vector2(157, 272)
 shape = SubResource("RectangleShape2D_3iakh")
 
 [node name="izq" type="StaticBody2D" parent="bordes"]
@@ -49,4 +49,12 @@ position = Vector2(548, 38)
 [node name="escudo" parent="." instance=ExtResource("4_xmtxx")]
 position = Vector2(542, 100)
 
+[node name="viento" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="detenerViento" type="Timer" parent="."]
+
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
+[connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
+[connection signal="timeout" from="detenerViento" to="." method="_on_detener_viento_timeout"]
