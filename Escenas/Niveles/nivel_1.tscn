@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj57auvpy6vbb"]
+[gd_scene load_steps=8 format=3 uid="uid://dj57auvpy6vbb"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_h3hml"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="1_jm478"]
 [ext_resource type="PackedScene" uid="uid://bq1e3lp34fbde" path="res://Escenas/objetos/habilidad/habilidad.tscn" id="3_kmv7y"]
 [ext_resource type="PackedScene" uid="uid://c0exydsu1f8qw" path="res://Escenas/objetos/habilidad/escudo/escudo.tscn" id="4_xmtxx"]
+[ext_resource type="Texture2D" uid="uid://qfg1qkintpch" path="res://Sprite/fondos/fondo2025.png" id="5_oaqto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
 size = Vector2(58, 996)
@@ -13,6 +14,11 @@ size = Vector2(64, 998)
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_h3hml")
+
+[node name="Fondo2025" type="Sprite2D" parent="."]
+position = Vector2(639, 359)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("5_oaqto")
 
 [node name="Burbuja" parent="." instance=ExtResource("1_jm478")]
 position = Vector2(567, 566)
@@ -55,6 +61,18 @@ autostart = true
 
 [node name="detenerViento" type="Timer" parent="."]
 
+[node name="temporizador" type="Timer" parent="."]
+
+[node name="textTiempo" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 17.0
+offset_right = 188.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.937255)
+theme_override_font_sizes/font_size = 23
+text = "tiempo"
+
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
 [connection signal="timeout" from="detenerViento" to="." method="_on_detener_viento_timeout"]
+[connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]

@@ -1,11 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7jneyekbowpr"]
+[gd_scene load_steps=5 format=3 uid="uid://c7jneyekbowpr"]
 
 [ext_resource type="Script" path="res://Escenas/objetos/cuchillo_coc.gd" id="1_t2mx6"]
+[ext_resource type="Texture2D" uid="uid://df1tcnkkxmjg2" path="res://Sprite/objetos/2 sin título_20250121124124.png" id="2_tl82x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahwgo"]
+size = Vector2(19.112, 123.213)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0rsf"]
+size = Vector2(44.0187, 75.0157)
 
 [node name="cuchilloCoc" type="CharacterBody2D"]
 script = ExtResource("1_t2mx6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14.9367, 5.63439)
+rotation = -2.39285
 shape = SubResource("RectangleShape2D_ahwgo")
+
+[node name="2SinTítulo20250121124124" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_tl82x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, -2)
+rotation = 0.680678
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l0rsf")

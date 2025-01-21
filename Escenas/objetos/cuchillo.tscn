@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cykirqw5gqlpr"]
+
+[ext_resource type="Texture2D" uid="uid://b5cqq7cvxd613" path="res://Sprite/objetos/4 sin título_20250121134544.png" id="1_66vum"]
+[ext_resource type="Script" path="res://Escenas/objetos/cuchillo.gd" id="1_np5mk"]
+
+[node name="cuchillo" type="CharacterBody2D"]
+script = ExtResource("1_np5mk")
+
+[node name="4SinTítulo20250121134544" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_66vum")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-45, -58, -37, -31, -18, 9, -10, 20, -2, 23, 4, 15, 7, 28, 11, 35, 23, 50, 39, 65, 54, 51, 21, 14, 12, -1, -2, -22)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bijlw14qci8jq"]
+
+[ext_resource type="Texture2D" uid="uid://dwxa5jj52d1yo" path="res://Sprite/objetos/3 sin título_20250121131002.png" id="1_1kp6x"]
+[ext_resource type="Script" path="res://Escenas/objetos/agujas.gd" id="1_ruyk5"]
+
+[node name="agujas" type="CharacterBody2D"]
+script = ExtResource("1_ruyk5")
+
+[node name="3SinTítulo20250121131002" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_1kp6x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, -30, -3, -27, -5, -21, -5, -16, -9, -2, -19, 18, -26, 37, -25, 39, -18, 27, -9, 6, 1, -13, 7, -25)
