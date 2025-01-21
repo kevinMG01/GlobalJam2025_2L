@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var item = "roca"
+
+var item = "cuchilloCoc"
 var viento = true
 
 #const SPEED = 200.0

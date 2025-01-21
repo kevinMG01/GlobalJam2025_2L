@@ -2,6 +2,7 @@ extends Node2D
 
 
 var roca = preload("res://Escenas/objetos/roca.tscn")
+var cuchilloCoc = preload("res://Escenas/objetos/cuchillo_coc.tscn")
 
 @onready var marker1 = $instanObj/Izq
 @onready var marker2 = $instanObj/Der
@@ -12,8 +13,6 @@ func _ready():
 	randomize()
 	$tiempoSpawn.wait_time = 2
 	$tiempoSpawn.start()
-
-
 
 func spawn(obj):
 	for i in range(cantidadObjetos):
@@ -28,9 +27,16 @@ func spawn(obj):
 		$instanObj.add_child(objeto)
 
 
-
 func _on_tiempo_spawn_timeout():
-	spawn(roca)
+	var newspawn = randi_range(1,4)
+	if newspawn == 1:
+		spawn(roca)
+	if newspawn == 2:
+		spawn(cuchilloCoc)
+	if newspawn == 3:
+		spawn(roca)
+	if newspawn == 4:
+		spawn(roca)
 	var num = randi_range(0,2)
 	cantidadObjetos = num
 	var tim = randf_range(0.5, 1.3)
@@ -50,9 +56,7 @@ func _on_viento_timeout():
 	$detenerViento.start()
 
 
-
-
 func _on_detener_viento_timeout():
 	GlovalVar.viento = false
 	$detenerViento.stop()
-	pass # Replace with function body.
+

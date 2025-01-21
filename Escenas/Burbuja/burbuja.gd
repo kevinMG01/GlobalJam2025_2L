@@ -8,10 +8,11 @@ var piedra
 
 var objetosDeProteccion = {
 	"roca" : 0,
-	"madera": 0,
-	"piedra": 0
+	"cichilloCoc": 0,
+	"aguja": 0,
+	"cuchillo": 0
 }
-var cantidadObjetos = objetosDeProteccion.roca + objetosDeProteccion.madera + objetosDeProteccion.piedra
+var cantidadObjetos = objetosDeProteccion.roca
 var habilidad = 0
 
 var SPEED = 550
@@ -47,7 +48,6 @@ func activarHabilidad():
 		$escudo.position = Vector2(0, 200)
 	if habRecolectada.escudo == true:
 		$escudo.position = Vector2(0,0)
-		print(habRecolectada.escudo)
 
 	if habRecolectada.velocidad ==false:
 		SPEED = 550
@@ -57,12 +57,16 @@ func activarHabilidad():
 func recolectarProtector(item : String):
 	if item == "roca":
 		objetosDeProteccion.roca += 1
+	if item == "cuchilloCoc":
+		objetosDeProteccion.cuchilloCoc += 1
+	if item == "aguja":
+		objetosDeProteccion.aguja += 1
+	if item == "cuchillo":
+		objetosDeProteccion.cuchillo += 1
 
 func spawnDefenza():
 	if cantidadObjetos >=3:
 		pass
-
-
 
 func _on_detector_body_entered(body):
 	# obtener habilidad
