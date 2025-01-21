@@ -10,3 +10,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_14p33")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 204.0
+offset_right = 601.0
+offset_bottom = 212.0
+
+[node name="Creditos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 290.0
+offset_right = 607.0
+offset_bottom = 298.0
