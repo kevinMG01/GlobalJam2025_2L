@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://qfg1qkintpch" path="res://Sprite/fondos/fondo2025.png" id="5_oaqto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
-size = Vector2(58, 996)
+size = Vector2(70, 1368)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms0yl"]
-size = Vector2(64, 998)
+size = Vector2(64, 1267)
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_h3hml")
@@ -39,14 +39,14 @@ position = Vector2(1100, 0)
 position = Vector2(1156, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/der"]
-position = Vector2(157, 272)
+position = Vector2(151, 86)
 shape = SubResource("RectangleShape2D_3iakh")
 
 [node name="izq" type="StaticBody2D" parent="bordes"]
 position = Vector2(-43, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/izq"]
-position = Vector2(22, 280)
+position = Vector2(22, 145.5)
 shape = SubResource("RectangleShape2D_ms0yl")
 
 [node name="habilidad" parent="." instance=ExtResource("3_kmv7y")]

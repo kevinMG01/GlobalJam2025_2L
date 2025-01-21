@@ -28,6 +28,12 @@ func _ready():
 	activarHabilidad()
 
 func _physics_process(delta):
+	if $escudo2.visible == true:
+		for i in 1:
+			$animacioEscudo.start()
+		
+
+
 	if habilidad > 0 :
 		if Input.is_action_just_pressed("ui_accept"):
 			GlovalVar.grupo = "objetos"
@@ -90,6 +96,7 @@ func _on_detector_body_entered(body):
 
 	if body.is_in_group("escudo"):
 		habRecolectada.escudo = true
+		$escudo2.visible = true
 		body.queue_free()
 		activarHabilidad()
 
@@ -103,6 +110,17 @@ func _on_cont_habi_timeout():
 func _on_escudo_body_entered(body):
 	if body.is_in_group("enemigo"):
 		habRecolectada.escudo = false
+		$escudo2.visible = false
+		$animacioEscudo.stop()
 		activarHabilidad()
 		body.queue_free()
+
+
+var ani = false
+func _on_animacio_escudo_timeout():
+	var newani = !ani
+	if ani == false:
+		$escudo2.scale = Vector2(1.2, 1.2)
+	if ani == true:
+		$escudo2.scale = Vector2(0.2, 1)
 

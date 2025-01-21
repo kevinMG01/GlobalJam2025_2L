@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3f5uesdnb1oh"]
+[gd_scene load_steps=9 format=3 uid="uid://b3f5uesdnb1oh"]
 
 [ext_resource type="Script" path="res://Escenas/Burbuja/burbuja.gd" id="1_e2rqe"]
 [ext_resource type="Texture2D" uid="uid://gey1shr13pvv" path="res://Sprite/Burbuja/Nuevo Lienzo.png" id="2_y0knc"]
+[ext_resource type="Texture2D" uid="uid://cervny0lxm74u" path="res://Sprite/habilidad/Escudo-Photoroom.png" id="3_5bcw0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo11m"]
 radius = 46.0109
@@ -10,7 +11,28 @@ radius = 46.0109
 radius = 50.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s4w2"]
-radius = 62.0
+radius = 73.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x77t0"]
+bg_color = Color(0.929412, 0.952941, 0.964706, 0)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0, 0.184314, 0, 1)
+border_blend = true
+corner_radius_top_left = 53
+corner_radius_top_right = 53
+corner_radius_bottom_right = 53
+corner_radius_bottom_left = 53
+anti_aliasing_size = 3.825
+
+[sub_resource type="Theme" id="Theme_4tta7"]
+Button/styles/disabled = SubResource("StyleBoxFlat_x77t0")
+Button/styles/focus = SubResource("StyleBoxFlat_x77t0")
+Button/styles/hover = SubResource("StyleBoxFlat_x77t0")
+Button/styles/normal = SubResource("StyleBoxFlat_x77t0")
+Button/styles/pressed = SubResource("StyleBoxFlat_x77t0")
 
 [node name="Burbuja" type="CharacterBody2D"]
 script = ExtResource("1_e2rqe")
@@ -45,6 +67,25 @@ shape = SubResource("CircleShape2D_3s4w2")
 scale = Vector2(0.14, 0.14)
 texture = ExtResource("2_y0knc")
 
+[node name="escudo2" type="Button" parent="."]
+visible = false
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(1.2, 1.2)
+theme = SubResource("Theme_4tta7")
+
+[node name="Escudo-photoroom" type="Sprite2D" parent="escudo2"]
+position = Vector2(60, 60.8333)
+scale = Vector2(0.833333, 0.833333)
+texture = ExtResource("3_5bcw0")
+
+[node name="animacioEscudo" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="timeout" from="ContHabi" to="." method="_on_cont_habi_timeout"]
 [connection signal="body_entered" from="escudo" to="." method="_on_escudo_body_entered"]
+[connection signal="timeout" from="animacioEscudo" to="." method="_on_animacio_escudo_timeout"]
