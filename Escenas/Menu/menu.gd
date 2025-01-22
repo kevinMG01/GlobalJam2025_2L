@@ -27,4 +27,3 @@ func _on_tim_play_timeout():
 
 func _on_creditos_button_down():
 	$play.play()
-

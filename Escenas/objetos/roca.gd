@@ -51,4 +51,3 @@ func grupos():
 		removerGrupo()
 		asignarGrupo("objetos")
 	
-

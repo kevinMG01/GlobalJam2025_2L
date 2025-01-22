@@ -125,4 +125,3 @@ func _on_animacio_escudo_timeout():
 		$escudo2.scale = Vector2(1.2, 1.2)
 	if ani == true:
 		$escudo2.scale = Vector2(0.2, 1)
-

@@ -10,6 +10,3 @@ var vientoIzqDer = true
 
 
 var derota = false
-
-
-
