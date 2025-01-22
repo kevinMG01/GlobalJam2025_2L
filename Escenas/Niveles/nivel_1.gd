@@ -11,8 +11,9 @@ var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
 
 var cantidadObjetos = 2
 
-var tiempo = 45
-
+var tiempo = 30
+#45
+#50
 
 func _ready():
 	randomize()
