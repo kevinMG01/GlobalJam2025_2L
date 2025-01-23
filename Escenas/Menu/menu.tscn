@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://3psyuukweuhh"]
+[gd_scene load_steps=9 format=3 uid="uid://3psyuukweuhh"]
 
 [ext_resource type="Script" path="res://Escenas/Menu/menu.gd" id="1_14p33"]
+[ext_resource type="Texture2D" uid="uid://byvc3024r0ema" path="res://Escenas/Menu/menu4.png" id="2_6ewu8"]
 [ext_resource type="AudioStream" uid="uid://b8wti220iewdq" path="res://sonidos/pantallaprincipal.mp3" id="2_x6frq"]
 [ext_resource type="AudioStream" uid="uid://be5ei8etts8r8" path="res://sonidos/elecciondepantalla.mp3" id="3_5hdsg"]
+[ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="5_i3luu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vi76"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp53f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh3ws"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,22 +22,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00553, 1.03311)
 script = ExtResource("1_14p33")
 
-[node name="Play" type="Button" parent="."]
-layout_mode = 0
-offset_left = 593.0
-offset_top = 204.0
-offset_right = 686.0
-offset_bottom = 236.0
-text = "Play"
-
-[node name="Creditos" type="Button" parent="."]
-layout_mode = 0
-offset_left = 599.0
-offset_top = 290.0
-offset_right = 699.0
-offset_bottom = 311.0
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.5
+offset_top = -354.0
+offset_right = 635.5
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6ewu8")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_x6frq")
@@ -40,6 +52,85 @@ volume_db = 10.0
 [node name="timPlay" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
-[connection signal="button_down" from="Creditos" to="." method="_on_creditos_button_down"]
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.557
+offset_top = -18.3133
+offset_right = 183.443
+offset_bottom = 88.6867
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_i3luu")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.585
+offset_top = -255.461
+offset_right = 188.415
+offset_bottom = -148.461
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_i3luu")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.574
+offset_top = -132.531
+offset_right = 186.426
+offset_bottom = -25.5315
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_i3luu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -232.0
+offset_right = 142.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vi76")
+text = "Jugar
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_fp53f")
+text = "Creditos
+"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_rh3ws")
+text = "Salir
+"
+
 [connection signal="timeout" from="timPlay" to="." method="_on_tim_play_timeout"]
