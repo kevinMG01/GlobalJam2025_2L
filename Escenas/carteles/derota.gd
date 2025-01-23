@@ -4,9 +4,9 @@ extends Control
 
 
 
-func _ready():
-	if GlovalVar.derota == false:
-		$der.visible = false
+#func _ready():
+	#if GlovalVar.derota == false:
+		#$der.visible = false
 
 
 func _process(delta):

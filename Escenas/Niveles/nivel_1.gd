@@ -56,6 +56,7 @@ func _on_tiempo_spawn_timeout():
 	cantidadObjetos = num
 	var tim = randf_range(0.5, 1.3)
 	$tiempoSpawn.wait_time = tim
+	#n2: 1-4 . t: 1.2 . 
 	
 
 

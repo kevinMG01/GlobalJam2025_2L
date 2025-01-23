@@ -28,6 +28,7 @@ func _ready():
 	activarHabilidad()
 
 func _physics_process(delta):
+	rotation_degrees += 1
 	if $escudo2.visible == true:
 		for i in 1:
 			$animacioEscudo.start()
@@ -47,10 +48,10 @@ func _physics_process(delta):
 	# Movimiento en el eje X
 	if direction_x:
 		velocity.x = direction_x * SPEED
-		if direction_x == 1:
-			$NuevoLienzo.flip_h = true
-		elif direction_x == -1:
-			$NuevoLienzo.flip_h = false
+		#if direction_x == 1:
+			#$NuevoLienzo.flip_h = true
+		#elif direction_x == -1:
+			#$NuevoLienzo.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
