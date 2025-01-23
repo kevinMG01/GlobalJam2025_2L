@@ -78,3 +78,4 @@ func _on_detener_viento_timeout():
 
 func _on_temporizador_timeout():
 	get_tree().paused = true
+	GlovalVar.victoria = true

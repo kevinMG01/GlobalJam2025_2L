@@ -103,6 +103,7 @@ func _on_detector_body_entered(body):
 	if body.is_in_group("enemigo"):
 		$AudioStreamPlayer2D.play()
 		GlovalVar.derota = true
+		get_tree().paused = true
 		self.queue_free()
 
 	if body.is_in_group("velocidad"):
