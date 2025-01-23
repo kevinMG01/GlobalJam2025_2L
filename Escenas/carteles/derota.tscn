@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2ds52qtg13pp"]
+[gd_scene load_steps=6 format=3 uid="uid://2ds52qtg13pp"]
 
 [ext_resource type="Script" path="res://Escenas/carteles/derota.gd" id="1_cvmly"]
 [ext_resource type="AudioStream" uid="uid://q2getqhrn1yc" path="res://sonidos/derrota.mp3" id="2_8pq2p"]
 [ext_resource type="Texture2D" uid="uid://bi1ghvkajjjpt" path="res://Sprite/fondos/Perdiste.png" id="2_dnbq7"]
 [ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="3_wusfn"]
+[ext_resource type="Texture2D" uid="uid://d2eydgtglrgyt" path="res://icon.svg" id="4_0nr1r"]
 
 [node name="derota" type="Control"]
 process_mode = 2
@@ -66,7 +67,32 @@ offset_top = 26.25
 offset_right = 287.5
 offset_bottom = 81.25
 theme_override_font_sizes/font_size = 40
-text = "Reintentar"
+text = "ADD"
+
+[node name="add" type="Panel" parent="der"]
+visible = false
+offset_right = 1284.0
+offset_bottom = 744.0
+
+[node name="Icon" type="Sprite2D" parent="der/add"]
+position = Vector2(631.5, 393)
+scale = Vector2(10.0078, 5.98438)
+texture = ExtResource("4_0nr1r")
+
+[node name="add" type="TextureButton" parent="der/add"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 92.0
+offset_right = 1169.0
+offset_bottom = 199.0
+texture_normal = ExtResource("3_wusfn")
+
+[node name="Button" type="Button" parent="der/add"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 74.0
+offset_right = 320.0
+offset_bottom = 165.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_8pq2p")
@@ -75,4 +101,6 @@ stream = ExtResource("2_8pq2p")
 
 [connection signal="pressed" from="der/Panel/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="der/Panel/Reintentar" to="." method="_on_reintentar_pressed"]
+[connection signal="pressed" from="der/add/add" to="." method="_on_add_pressed"]
+[connection signal="button_down" from="der/add/Button" to="." method="_on_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
