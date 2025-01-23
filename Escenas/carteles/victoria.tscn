@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6tsdj31d52xt"]
+[gd_scene load_steps=5 format=3 uid="uid://6tsdj31d52xt"]
 
 [ext_resource type="Script" path="res://Escenas/carteles/victoria.gd" id="1_vt6cg"]
+[ext_resource type="Texture2D" uid="uid://0k0agnmg06pk" path="res://Sprite/fondos/Ganaste.png" id="2_guk66"]
 [ext_resource type="AudioStream" uid="uid://c7cwr1b4e2jpe" path="res://sonidos/victoriasonido.mp3" id="3_fxtte"]
+[ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="3_ueiuc"]
 
 [node name="victoria" type="Control"]
 layout_mode = 3
@@ -21,12 +23,31 @@ offset_top = 249.0
 offset_right = 842.0
 offset_bottom = 670.0
 
-[node name="Button" type="Button" parent="pausa/Panel"]
+[node name="TextureRect" type="TextureRect" parent="pausa/Panel"]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 82.0
-offset_right = 262.0
-offset_bottom = 137.0
+offset_left = -40.0
+offset_top = -156.0
+offset_right = 482.0
+offset_bottom = 524.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_guk66")
+
+[node name="TextureButton" type="TextureButton" parent="pausa/Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 425.0
+offset_bottom = 107.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_ueiuc")
+
+[node name="Text" type="Label" parent="pausa/Panel/TextureButton"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 9.99999
+offset_right = 255.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 56
+text = "Menu"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fxtte")
