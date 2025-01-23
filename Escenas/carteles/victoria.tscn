@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="3_ueiuc"]
 
 [node name="victoria" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,36 +19,55 @@ script = ExtResource("1_vt6cg")
 process_mode = 1
 
 [node name="Panel" type="Panel" parent="pausa"]
-offset_left = 464.0
-offset_top = 249.0
-offset_right = 842.0
-offset_bottom = 670.0
+offset_left = 505.0
+offset_top = 183.0
+offset_right = 824.0
+offset_bottom = 577.0
 
 [node name="TextureRect" type="TextureRect" parent="pausa/Panel"]
 layout_mode = 0
-offset_left = -40.0
-offset_top = -156.0
-offset_right = 482.0
-offset_bottom = 524.0
+offset_left = -38.0
+offset_top = -95.0
+offset_right = 484.0
+offset_bottom = 585.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_guk66")
 
-[node name="TextureButton" type="TextureButton" parent="pausa/Panel"]
+[node name="menu" type="TextureButton" parent="pausa/Panel"]
 layout_mode = 0
-offset_left = 64.0
-offset_right = 425.0
-offset_bottom = 107.0
+offset_left = 56.0
+offset_top = 136.0
+offset_right = 417.0
+offset_bottom = 243.0
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("3_ueiuc")
 
-[node name="Text" type="Label" parent="pausa/Panel/TextureButton"]
+[node name="Text" type="Label" parent="pausa/Panel/menu"]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 9.99999
-offset_right = 255.0
-offset_bottom = 87.0
-theme_override_font_sizes/font_size = 56
+offset_left = 121.667
+offset_top = 21.6667
+offset_right = 276.667
+offset_bottom = 98.6667
+theme_override_font_sizes/font_size = 40
 text = "Menu"
+
+[node name="sigiente" type="TextureButton" parent="pausa/Panel"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 245.0
+offset_right = 422.0
+offset_bottom = 352.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_ueiuc")
+
+[node name="Text" type="Label" parent="pausa/Panel/sigiente"]
+layout_mode = 0
+offset_left = 91.6667
+offset_top = 19.9999
+offset_right = 384.667
+offset_bottom = 96.9999
+theme_override_font_sizes/font_size = 40
+text = "próximo"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fxtte")

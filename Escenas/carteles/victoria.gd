@@ -1,15 +1,16 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
+var cartel = false
+
+
 func _ready():
 	$pausa.visible = false
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_tree().paused == true:
-		for i in 1:
+	if get_tree().paused == true and not cartel:
 			$pausa.visible = true
 			$AudioStreamPlayer2D.play()
+			cartel = true

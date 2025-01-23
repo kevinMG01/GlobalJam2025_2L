@@ -93,10 +93,8 @@ text = "tiempo"
 [node name="fondo" type="AudioStreamPlayer2D" parent="."]
 
 [node name="victoria" parent="." instance=ExtResource("6_kqpko")]
-visible = false
 
 [node name="derota" parent="." instance=ExtResource("7_0m4y4")]
-visible = false
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
