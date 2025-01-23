@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj57auvpy6vbb"]
+[gd_scene load_steps=12 format=3 uid="uid://dj57auvpy6vbb"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_h3hml"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="1_jm478"]
@@ -14,6 +14,9 @@ size = Vector2(70, 1368)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms0yl"]
 size = Vector2(64, 1267)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t81c6"]
+size = Vector2(1415, 53.5)
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_h3hml")
@@ -47,21 +50,28 @@ position = Vector2(1100, 0)
 position = Vector2(1156, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/der"]
-position = Vector2(151, 86)
+position = Vector2(160, 86)
 shape = SubResource("RectangleShape2D_3iakh")
 
 [node name="izq" type="StaticBody2D" parent="bordes"]
 position = Vector2(-43, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/izq"]
-position = Vector2(22, 145.5)
+position = Vector2(16, 145.5)
 shape = SubResource("RectangleShape2D_ms0yl")
+
+[node name="abajo" type="StaticBody2D" parent="bordes"]
+position = Vector2(-43, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/abajo"]
+position = Vector2(708, 740)
+shape = SubResource("RectangleShape2D_t81c6")
 
 [node name="habilidad" parent="." instance=ExtResource("3_kmv7y")]
 position = Vector2(548, 38)
 
 [node name="escudo" parent="." instance=ExtResource("4_xmtxx")]
-position = Vector2(542, 100)
+position = Vector2(517, -904)
 
 [node name="viento" type="Timer" parent="."]
 wait_time = 8.0

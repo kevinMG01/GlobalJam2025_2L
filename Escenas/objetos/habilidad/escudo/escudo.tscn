@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cervny0lxm74u" path="res://Sprite/habilidad/Escudo-Photoroom.png" id="2_rwcku"]
 
 [node name="escudo" type="CharacterBody2D" groups=["escudo"]]
+collision_mask = 2
 script = ExtResource("1_a62t1")
 
 [node name="Escudo-photoroom" type="Sprite2D" parent="."]

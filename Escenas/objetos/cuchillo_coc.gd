@@ -24,9 +24,9 @@ func _physics_process(delta):
 	if viento == true:
 		if GlovalVar.viento == true:
 			if GlovalVar.vientoIzqDer == true:
-				velocity.x += 3
+				velocity.x += 4
 			if GlovalVar.vientoIzqDer == false:
-				velocity.x -= 3
+				velocity.x -= 4
 
 	move_and_slide()
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Escenas/objetos/agujas.gd" id="1_ruyk5"]
 
 [node name="agujas" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_ruyk5")
 
 [node name="3SinTítulo20250121131002" type="Sprite2D" parent="."]
