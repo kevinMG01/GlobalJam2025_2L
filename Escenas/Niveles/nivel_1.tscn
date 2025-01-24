@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dj57auvpy6vbb"]
+[gd_scene load_steps=13 format=3 uid="uid://dj57auvpy6vbb"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_h3hml"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="1_jm478"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://qfg1qkintpch" path="res://Sprite/fondos/fondo2025.png" id="5_oaqto"]
 [ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="6_kqpko"]
 [ext_resource type="PackedScene" uid="uid://2ds52qtg13pp" path="res://Escenas/carteles/derota.tscn" id="7_0m4y4"]
+[ext_resource type="Texture2D" uid="uid://cqe4lcpqo88e7" path="res://Sprite/fondo.png" id="9_ksywf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
 size = Vector2(70, 1368)
@@ -95,6 +96,11 @@ text = "tiempo"
 [node name="victoria" parent="." instance=ExtResource("6_kqpko")]
 
 [node name="derota" parent="." instance=ExtResource("7_0m4y4")]
+
+[node name="telonOscuro" type="Sprite2D" parent="."]
+position = Vector2(648.625, 363.25)
+scale = Vector2(1.25777, 1.26396)
+texture = ExtResource("9_ksywf")
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]

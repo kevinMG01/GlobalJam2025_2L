@@ -14,7 +14,7 @@ var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
 
 var cantidadObjetos = 2
 
-var tiempo = 50
+var tiempo = 71
 
 
 func _ready():
@@ -54,7 +54,7 @@ func _on_tiempo_spawn_timeout() -> void:
 		spawn(agujas)
 	if newspawn == 4:
 		spawn(cuchillo)
-	var num = randi_range(0,2)
+	var num = randi_range(1,2)
 	cantidadObjetos = num
 	var tim = randf_range(0.5, 1.3)
 	$tiempoSpawn.wait_time = tim

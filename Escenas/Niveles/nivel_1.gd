@@ -14,6 +14,9 @@ var cantidadObjetos = 2
 var tiempo = 30
 #45
 #50
+@onready var telonOscuro = $telonOscuro
+var opacity = 1.0
+var fade_speed = 0.2  # Velocidad de la disminución de opacidad
 
 func _ready():
 	randomize()
@@ -21,12 +24,17 @@ func _ready():
 	$tiempoSpawn.start()
 	$temporizador.wait_time =tiempo
 	$temporizador.start()
+	telonOscuro.modulate.a = opacity
 
 
 func _physics_process(delta):
-
+	
+	if opacity > 0:
+		opacity -= fade_speed * delta  # Decrece la opacidad según el tiempo
+		telonOscuro.modulate.a = opacity
+	
 	$textTiempo.text = "Tiempo: " + str(int($temporizador.time_left))
-	pass
+
 
 
 func spawn(obj):
@@ -52,7 +60,7 @@ func _on_tiempo_spawn_timeout():
 		spawn(agujas)
 	if newspawn == 4:
 		spawn(cuchillo)
-	var num = randi_range(0,2)
+	var num = randi_range(1,2)
 	cantidadObjetos = num
 	var tim = randf_range(0.5, 1.3)
 	$tiempoSpawn.wait_time = tim

@@ -12,7 +12,7 @@ var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
 
 var cantidadObjetos = 2
 
-var tiempo = 50
+var tiempo = 76
 
 
 func _ready():
@@ -37,9 +37,10 @@ func spawn(obj):
 		
 		# Calculamos una posición aleatoria en el eje X entre Marker2D y Marker2D2
 		var x_pos = randf_range(marker1.position.x, marker2.position.x)
-
+		objeto. gravity = 500
+		
 		objeto.position = Vector2(x_pos, marker1.position.y)  # Asumimos que se deben alinear en Y
-
+		
 		$instanObj.add_child(objeto)
 
 func _on_tiempo_spawn_timeout() -> void:
@@ -52,9 +53,9 @@ func _on_tiempo_spawn_timeout() -> void:
 		spawn(agujas)
 	if newspawn == 4:
 		spawn(cuchillo)
-	var num = randi_range(0,2)
+	var num = randi_range(1,3)
 	cantidadObjetos = num
-	var tim = randf_range(0.5, 1.3)
+	var tim = randf_range(0.5, 1.2)
 	$tiempoSpawn.wait_time = tim
 	#n2: 1-4 . t: 1.2 . 
 
@@ -66,7 +67,7 @@ func _on_viento_timeout() -> void:
 		GlovalVar.vientoIzqDer = true
 	elif v == 2:
 		GlovalVar.vientoIzqDer = false
-			
+		
 	$detenerViento.wait_time = 3
 	$detenerViento.start()
 

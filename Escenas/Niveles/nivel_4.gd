@@ -13,7 +13,7 @@ var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
 
 var cantidadObjetos = 2
 
-var tiempo = 50
+var tiempo = 71
 
 
 func _ready():
@@ -35,13 +35,12 @@ func spawn(obj):
 	for i in range(cantidadObjetos):
 		# Instanciamos el objeto roca
 		var objeto = obj.instantiate()
-		
 		# Calculamos una posición aleatoria en el eje X entre Marker2D y Marker2D2
 		var x_pos = randf_range(marker1.position.x, marker2.position.x)
-
 		objeto.position = Vector2(x_pos, marker1.position.y)  # Asumimos que se deben alinear en Y
-
 		$instanObj.add_child(objeto)
+
+
 
 func _on_tiempo_spawn_timeout() -> void:
 	var newspawn = randi_range(1,4)
@@ -53,7 +52,7 @@ func _on_tiempo_spawn_timeout() -> void:
 		spawn(agujas)
 	if newspawn == 4:
 		spawn(cuchillo)
-	var num = randi_range(0,2)
+	var num = randi_range(1,2)
 	cantidadObjetos = num
 	var tim = randf_range(0.5, 1.3)
 	$tiempoSpawn.wait_time = tim

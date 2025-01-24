@@ -70,6 +70,8 @@ text = "tiempo"
 
 [node name="derota" parent="." instance=ExtResource("3_yl3vi")]
 
+[node name="capaOscura" type="Sprite2D" parent="."]
+
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
 [connection signal="timeout" from="detenerViento" to="." method="_on_detener_viento_timeout"]

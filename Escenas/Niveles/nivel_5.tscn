@@ -19,7 +19,7 @@ script = ExtResource("1_32guu")
 [node name="tiempoSpawn" type="Timer" parent="."]
 
 [node name="instanObj" type="Node2D" parent="."]
-position = Vector2(73, -84)
+position = Vector2(73, -187)
 
 [node name="Der" type="Marker2D" parent="instanObj"]
 position = Vector2(1100, 0)
