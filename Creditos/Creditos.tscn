@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfr2bqtkcwq0a"]
+[gd_scene load_steps=13 format=3 uid="uid://bfr2bqtkcwq0a"]
 
 [ext_resource type="Texture2D" uid="uid://gey1shr13pvv" path="res://Sprite/Burbuja/Nuevo Lienzo.png" id="1_7f83k"]
 [ext_resource type="Script" path="res://Creditos/creditos.gd" id="1_x2dok"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dxblvcffsr1a4" path="res://Sprite/Burbuja/burbuja_violeta2.png" id="3_8773m"]
 [ext_resource type="Texture2D" uid="uid://d2qlnlvxf764g" path="res://Sprite/Burbuja/burbuja_rosa2_.png" id="4_h6bx0"]
 [ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="6_h686c"]
+[ext_resource type="FontFile" uid="uid://cgcnqecqlbcaq" path="res://fuentes/PWBubbles.ttf" id="7_tbdwi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5t7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3ng6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1vqy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0si2e"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -94,9 +101,13 @@ offset_right = -17.0
 offset_bottom = 3.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_tbdwi")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h5t7u")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i3ng6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m1vqy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0si2e")
-text = "ATRÁS"
+text = "ATRAS"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0

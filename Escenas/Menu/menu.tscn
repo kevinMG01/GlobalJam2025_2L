@@ -1,16 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://3psyuukweuhh"]
+[gd_scene load_steps=19 format=3 uid="uid://3psyuukweuhh"]
 
 [ext_resource type="Script" path="res://Escenas/Menu/menu.gd" id="1_14p33"]
 [ext_resource type="Texture2D" uid="uid://byvc3024r0ema" path="res://Escenas/Menu/menu4.png" id="2_6ewu8"]
 [ext_resource type="AudioStream" uid="uid://b8wti220iewdq" path="res://sonidos/pantallaprincipal.mp3" id="2_x6frq"]
 [ext_resource type="AudioStream" uid="uid://be5ei8etts8r8" path="res://sonidos/elecciondepantalla.mp3" id="3_5hdsg"]
 [ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="5_i3luu"]
+[ext_resource type="FontFile" uid="uid://cgcnqecqlbcaq" path="res://fuentes/PWBubbles.ttf" id="6_3woum"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnnmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em8ha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7v1pb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vi76"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymhci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eiu5k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k00jl"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp53f"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf7o8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l6ps"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc1fo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh3ws"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -59,10 +78,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -177.557
-offset_top = -18.3133
-offset_right = 183.443
-offset_bottom = 88.6867
+offset_left = -179.546
+offset_top = -37.6723
+offset_right = 181.454
+offset_bottom = 69.3277
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_i3luu")
@@ -74,10 +93,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.585
-offset_top = -255.461
-offset_right = 188.415
-offset_bottom = -148.461
+offset_left = -178.552
+offset_top = -267.077
+offset_right = 182.448
+offset_bottom = -160.077
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_i3luu")
@@ -89,10 +108,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -174.574
-offset_top = -132.531
-offset_right = 186.426
-offset_bottom = -25.5315
+offset_left = -176.563
+offset_top = -153.826
+offset_right = 184.437
+offset_bottom = -46.8269
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_i3luu")
@@ -114,21 +133,33 @@ theme_override_constants/separation = 70
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_3woum")
 theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lnnmn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_em8ha")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7v1pb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7vi76")
 text = "Jugar
 "
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_3woum")
 theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ymhci")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eiu5k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k00jl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fp53f")
 text = "Creditos
 "
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_3woum")
 theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sf7o8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5l6ps")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mc1fo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rh3ws")
 text = "Salir
 "
