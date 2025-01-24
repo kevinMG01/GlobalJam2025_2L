@@ -25,4 +25,6 @@ func _on_menu_pressed() -> void:
 func _on_sigiente_pressed() -> void:
 	get_tree().paused = false
 	if GlovalVar.nivelActual == 1:
-		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_1.tscn")
+		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_2.tscn")
+	if GlovalVar.nivelActual == 2:
+		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_3.tscn")

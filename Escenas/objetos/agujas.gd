@@ -6,7 +6,7 @@ var item = "aguja"
 var viento = true
 
 #const SPEED = 200.0
-var gravity = 240
+var gravity = 400
 
 
 
