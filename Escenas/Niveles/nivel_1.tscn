@@ -37,7 +37,7 @@ position = Vector2(639, 363)
 [node name="tiempoSpawn" type="Timer" parent="."]
 
 [node name="instanObj" type="Node2D" parent="."]
-position = Vector2(11, -371)
+position = Vector2(73, -84)
 
 [node name="Der" type="Marker2D" parent="instanObj"]
 position = Vector2(1100, 0)
