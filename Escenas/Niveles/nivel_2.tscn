@@ -74,6 +74,9 @@ text = "tiempo"
 
 [node name="derota" parent="." instance=ExtResource("3_36ul2")]
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(641, 598)
+
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
 [connection signal="timeout" from="detenerViento" to="." method="_on_detener_viento_timeout"]

@@ -115,6 +115,7 @@ offset_left = 41.0
 offset_top = 34.0
 offset_right = 830.0
 offset_bottom = 651.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_tbdwi")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_osxot")
@@ -125,6 +126,10 @@ kevin Montaño:
 Programador
 
 Gimenez Dylan:
-GameDesing/programdor"
+GameDesing/programdor
+
+brisa viveros: Artista
+
+sofia ( kae ): artista"
 
 [connection signal="pressed" from="atras" to="." method="_on_atras_pressed"]

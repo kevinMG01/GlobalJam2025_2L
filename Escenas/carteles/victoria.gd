@@ -11,9 +11,9 @@ func _ready():
 
 func _process(delta):
 	if get_tree().paused == true and not cartel and GlovalVar.victoria == true:
-			$pausa.visible = true
-			$AudioStreamPlayer2D.play()
-			cartel = true
+		$pausa.visible = true
+		$AudioStreamPlayer2D.play()
+		cartel = true
 
 
 func _on_menu_pressed() -> void:

@@ -5,7 +5,7 @@ var roca = preload("res://Escenas/objetos/roca.tscn")
 var aguja = preload("res://Escenas/objetos/agujas.tscn")
 var cuchillo_coc = preload("res://Escenas/objetos/cuchillo_coc.tscn")
 var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
-
+var x = true
 
 var objetosDeProteccion = {
 	"roca" : 0,
@@ -158,6 +158,18 @@ func spawnDefenza():
 	if cantidadObjetos >=3:
 		pass
 
+
+func colicionVisible():
+	if x == false:
+		$CollisionShape2D.disabled = true
+		$detector.disconnect("body_entered", _on_detector_body_entered)# error
+		$muerte.wait_time = 9
+		$muerte.start()
+	elif x == true:
+		$CollisionShape2D.disabled = false
+		
+
+
 func _on_detector_body_entered(body):
 	# obtener habilidad
 	if body.is_in_group("habilidad"):
@@ -212,3 +224,9 @@ func _on_animacio_escudo_timeout():
 		$escudo2.scale = Vector2(1.2, 1.2)
 	if ani == true:
 		$escudo2.scale = Vector2(0.2, 1)
+
+
+func _on_muerte_timeout() -> void:
+	colicionVisible()
+	$muerte.stop()
+	pass

@@ -18,6 +18,7 @@ var tiempo = 71
 
 
 func _ready():
+	GlovalVar.victoria = false
 	GlovalVar.nivelActual = 3
 	randomize()
 	$tiempoSpawn.wait_time = 2
@@ -36,7 +37,7 @@ func spawn(obj):
 	for i in range(cantidadObjetos):
 		# Instanciamos el objeto roca
 		var objeto = obj.instantiate()
-		
+		objeto. gravity = 400
 		# Calculamos una posición aleatoria en el eje X entre Marker2D y Marker2D2
 		var x_pos = randf_range(marker1.position.x, marker2.position.x)
 
@@ -54,16 +55,16 @@ func _on_tiempo_spawn_timeout() -> void:
 		spawn(agujas)
 	if newspawn == 4:
 		spawn(cuchillo)
-	var num = randi_range(1,2)
+	var num = randi_range(1,3)
 	cantidadObjetos = num
-	var tim = randf_range(0.5, 1.3)
+	var tim = randf_range(0.2, 1)
 	$tiempoSpawn.wait_time = tim
 	#n2: 1-4 . t: 1.2 . 
 
 
 func _on_viento_timeout() -> void:
 	GlovalVar.viento = true
-	var v = randi_range(1, 3)
+	var v = randi_range(1, 4)
 	if v == 1:
 		GlovalVar.vientoIzqDer = true
 	elif v == 2:

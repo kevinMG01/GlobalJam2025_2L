@@ -16,6 +16,6 @@ var victoria = false
 
 var reintentar = 1
 
-
+var spawnPlayer = false
 
 var nivelActual = 1

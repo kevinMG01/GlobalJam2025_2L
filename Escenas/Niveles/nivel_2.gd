@@ -5,6 +5,7 @@ var roca = preload("res://Escenas/objetos/roca.tscn")
 var cuchilloCoc = preload("res://Escenas/objetos/cuchillo_coc.tscn")
 var agujas = preload("res://Escenas/objetos/agujas.tscn")
 var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
+var player = preload("res://Escenas/Burbuja/burbuja.tscn")
 
 @onready var marker1 = $instanObj/Izq
 @onready var marker2 = $instanObj/Der
@@ -15,6 +16,9 @@ var tiempo = 50
 
 
 func _ready():
+	GlovalVar.victoria = false
+	GlovalVar.spawnPlayer = false
+	GlovalVar.derota = false
 	GlovalVar.nivelActual = 2
 	randomize()
 	$tiempoSpawn.wait_time = 2
@@ -24,7 +28,8 @@ func _ready():
 
 
 func _physics_process(delta):
-
+	if GlovalVar.spawnPlayer == true:
+		spawnPlayer()
 	$textTiempo.text = "Tiempo: " + str(int($temporizador.time_left))
 	pass
 
@@ -33,13 +38,21 @@ func spawn(obj):
 	for i in range(cantidadObjetos):
 		# Instanciamos el objeto roca
 		var objeto = obj.instantiate()
-		
+		objeto. gravity = 350
 		# Calculamos una posición aleatoria en el eje X entre Marker2D y Marker2D2
 		var x_pos = randf_range(marker1.position.x, marker2.position.x)
 
 		objeto.position = Vector2(x_pos, marker1.position.y)  # Asumimos que se deben alinear en Y
 
 		$instanObj.add_child(objeto)
+
+func spawnPlayer():
+	var newPlayer = player.instantiate()
+	newPlayer.global_position = $Marker2D.global_position
+	newPlayer.colicionVisible()
+	get_parent().add_child(newPlayer)
+	
+	GlovalVar.spawnPlayer = false
 
 func _on_tiempo_spawn_timeout() -> void:
 	var newspawn = randi_range(1,4)

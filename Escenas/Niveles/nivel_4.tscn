@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6lv7b3odouba"]
+[gd_scene load_steps=8 format=3 uid="uid://c6lv7b3odouba"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_4.gd" id="1_binfk"]
 [ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="2_a0nhf"]
 [ext_resource type="PackedScene" uid="uid://2ds52qtg13pp" path="res://Escenas/carteles/derota.tscn" id="3_yl3vi"]
+[ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="4_ahw8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n371x"]
 size = Vector2(70, 1368)
@@ -48,6 +49,9 @@ position = Vector2(-43, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordes/abajo"]
 position = Vector2(708, 740)
 shape = SubResource("RectangleShape2D_ojke2")
+
+[node name="Burbuja" parent="." instance=ExtResource("4_ahw8q")]
+position = Vector2(654, 599)
 
 [node name="viento" type="Timer" parent="."]
 wait_time = 8.0

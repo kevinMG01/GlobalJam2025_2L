@@ -106,6 +106,9 @@ texture = ExtResource("9_ksywf")
 [node name="velocidad" parent="." instance=ExtResource("10_hoq1s")]
 position = Vector2(382, 4)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(628, 556)
+
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]
 [connection signal="timeout" from="detenerViento" to="." method="_on_detener_viento_timeout"]

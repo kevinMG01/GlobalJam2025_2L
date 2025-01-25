@@ -4,20 +4,25 @@ extends Control
 
 var visibleCartel = false
 var add = 1
-
+var ocultarReintentar = false
 
 func _ready():
 	if GlovalVar.reintentar == 4:
 		GlovalVar.reintentar = 1
 	posReintentar()
+	$der.visible = false
 	if GlovalVar.derota == false:
 		$der.visible = false
+
+
 
 
 func _process(delta):
 	if add >= 2:
 		$der/Panel/Reintentar/Text.text ="Reintentar"
 	if GlovalVar.derota == true and not visibleCartel:
+		if ocultarReintentar == true:
+			$der/Panel/Reintentar.visible = false
 		$der.visible = true
 		$Timer.wait_time = 0.5
 		$Timer.start()
@@ -43,6 +48,7 @@ func _on_reintentar_pressed() -> void:
 		return
 	$der/add.visible = true
 	add += 1
+	GlovalVar.spawnPlayer = true
 	
 
 
@@ -53,6 +59,7 @@ func _on_menu_pressed() -> void:
 
 func _on_add_pressed() -> void:
 	$der/add.visible = false
+	ocultarReintentar = true
 	pass # Replace with function body.
 
 
