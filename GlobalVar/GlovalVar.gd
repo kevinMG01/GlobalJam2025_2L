@@ -10,3 +10,12 @@ var vientoIzqDer = true
 
 
 var derota = false
+var victoria = false
+
+
+
+var reintentar = 1
+
+
+
+var nivelActual = 1

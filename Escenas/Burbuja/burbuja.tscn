@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3f5uesdnb1oh"]
+[gd_scene load_steps=15 format=3 uid="uid://b3f5uesdnb1oh"]
 
 [ext_resource type="Script" path="res://Escenas/Burbuja/burbuja.gd" id="1_e2rqe"]
 [ext_resource type="Texture2D" uid="uid://gey1shr13pvv" path="res://Sprite/Burbuja/Nuevo Lienzo.png" id="2_y0knc"]
 [ext_resource type="Texture2D" uid="uid://cervny0lxm74u" path="res://Sprite/habilidad/Escudo-Photoroom.png" id="3_5bcw0"]
-[ext_resource type="AudioStream" uid="uid://cyqlof26be87q" path="res://sonidos/explociondeburbuja.mp3" id="4_t0h57"]
+[ext_resource type="Texture2D" uid="uid://bkabjl2yxqdtx" path="res://Sprite/Burbuja/explotar_celeste1.png" id="3_kha2d"]
+[ext_resource type="Texture2D" uid="uid://cldn45vkxxh32" path="res://Sprite/Burbuja/explotar_celeste2.png" id="4_eu3rj"]
+[ext_resource type="AudioStream" uid="uid://t83k0ls44uta" path="res://sonidos/explociondeburbuja.mp3" id="4_t0h57"]
+[ext_resource type="Texture2D" uid="uid://bv3nmducy70sv" path="res://Sprite/Burbuja/explotar_celeste3.png" id="5_5hmno"]
+[ext_resource type="Texture2D" uid="uid://mq54hkgpeg0c" path="res://Sprite/Burbuja/explotar_celeste4.png" id="6_38rto"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo11m"]
 radius = 46.0109
@@ -13,6 +17,34 @@ radius = 50.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s4w2"]
 radius = 73.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eocbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y0knc")
+}],
+"loop": true,
+"name": &"burbuja",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kha2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eu3rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5hmno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_38rto")
+}],
+"loop": true,
+"name": &"explocion",
+"speed": 15.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x77t0"]
 bg_color = Color(0.929412, 0.952941, 0.964706, 0)
@@ -64,9 +96,10 @@ position = Vector2(116, -107)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="escudo"]
 shape = SubResource("CircleShape2D_3s4w2")
 
-[node name="NuevoLienzo" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.14, 0.14)
-texture = ExtResource("2_y0knc")
+sprite_frames = SubResource("SpriteFrames_eocbl")
+animation = &"burbuja"
 
 [node name="escudo2" type="Button" parent="."]
 visible = false

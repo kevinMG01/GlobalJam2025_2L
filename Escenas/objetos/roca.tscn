@@ -1,17 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://sv5smhryea84"]
 
 [ext_resource type="Script" path="res://Escenas/objetos/roca.gd" id="1_k6qiw"]
-[ext_resource type="Texture2D" uid="uid://d2eydgtglrgyt" path="res://icon.svg" id="2_bculv"]
+[ext_resource type="Texture2D" uid="uid://dqcl5qbmea8ce" path="res://Sprite/objetos/Piedra.png" id="2_o43b7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycowv"]
-radius = 60.075
+radius = 34.0
 
 [node name="roca" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_k6qiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ycowv")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1, -4)
-texture = ExtResource("2_bculv")
+scale = Vector2(1.30909, 1.30909)
+texture = ExtResource("2_o43b7")

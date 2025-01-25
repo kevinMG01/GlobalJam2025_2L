@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://6tsdj31d52xt"]
+[gd_scene load_steps=5 format=3 uid="uid://6tsdj31d52xt"]
 
 [ext_resource type="Script" path="res://Escenas/carteles/victoria.gd" id="1_vt6cg"]
+[ext_resource type="Texture2D" uid="uid://0k0agnmg06pk" path="res://Sprite/fondos/Ganaste.png" id="2_guk66"]
 [ext_resource type="AudioStream" uid="uid://c7cwr1b4e2jpe" path="res://sonidos/victoriasonido.mp3" id="3_fxtte"]
+[ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="3_ueiuc"]
 
 [node name="victoria" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,17 +19,60 @@ script = ExtResource("1_vt6cg")
 process_mode = 1
 
 [node name="Panel" type="Panel" parent="pausa"]
-offset_left = 464.0
-offset_top = 249.0
-offset_right = 842.0
-offset_bottom = 670.0
+offset_left = 483.0
+offset_top = 183.0
+offset_right = 802.0
+offset_bottom = 577.0
 
-[node name="Button" type="Button" parent="pausa/Panel"]
+[node name="TextureRect" type="TextureRect" parent="pausa/Panel"]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 82.0
-offset_right = 262.0
-offset_bottom = 137.0
+offset_left = -38.0
+offset_top = -95.0
+offset_right = 484.0
+offset_bottom = 585.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_guk66")
+
+[node name="menu" type="TextureButton" parent="pausa/Panel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 61.0
+offset_top = 136.0
+offset_right = 422.0
+offset_bottom = 243.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_ueiuc")
+
+[node name="Text" type="Label" parent="pausa/Panel/menu"]
+layout_mode = 0
+offset_left = 121.667
+offset_top = 21.6667
+offset_right = 276.667
+offset_bottom = 98.6667
+theme_override_font_sizes/font_size = 40
+text = "Menu"
+
+[node name="sigiente" type="TextureButton" parent="pausa/Panel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 66.0
+offset_top = 245.0
+offset_right = 427.0
+offset_bottom = 352.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_ueiuc")
+
+[node name="Text" type="Label" parent="pausa/Panel/sigiente"]
+layout_mode = 0
+offset_left = 91.6667
+offset_top = 19.9999
+offset_right = 384.667
+offset_bottom = 96.9999
+theme_override_font_sizes/font_size = 40
+text = "próximo"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fxtte")
+
+[connection signal="pressed" from="pausa/Panel/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="pausa/Panel/sigiente" to="." method="_on_sigiente_pressed"]

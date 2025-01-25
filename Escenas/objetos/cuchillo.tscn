@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Escenas/objetos/cuchillo.gd" id="1_np5mk"]
 
 [node name="cuchillo" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_np5mk")
 
 [node name="4SinTítulo20250121134544" type="Sprite2D" parent="."]
