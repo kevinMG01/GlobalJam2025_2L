@@ -19,7 +19,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_detail = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osxot"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.616956, 0.568317, 0.743457, 0)
 corner_detail = 20
 
 [node name="Creditos" type="Control"]
@@ -115,6 +115,7 @@ offset_left = 41.0
 offset_top = 34.0
 offset_right = 830.0
 offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("7_tbdwi")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_osxot")
 text = "Lucas Bruno:
