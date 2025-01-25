@@ -3,12 +3,18 @@ extends CharacterBody2D
 var item = "roca"
 var viento = true
 
+var usoDePlayer = false
 #const SPEED = 200.0
 var gravity = 240
 
 
 
 func _ready():
+	if usoDePlayer == true:
+		removerGrupo()
+		add_to_group("")
+		gravity = 0
+		return
 	grupos()
 
 
@@ -20,12 +26,14 @@ func _physics_process(delta):
 	rotation_degrees += 1
 	#if velocity.length() > 0:
 		#velocity = velocity.normalized() * SPEED
-	if viento == true:
-		if GlovalVar.viento == true:
-			if GlovalVar.vientoIzqDer == true:
-				velocity.x += 3
-			if GlovalVar.vientoIzqDer == false:
-				velocity.x -= 3
+	if usoDePlayer == true:
+		return
+		if viento == true:
+			if GlovalVar.viento == true:
+				if GlovalVar.vientoIzqDer == true:
+					velocity.x += 3
+				if GlovalVar.vientoIzqDer == false:
+					velocity.x -= 3
 
 	move_and_slide()
 
@@ -39,15 +47,18 @@ func asignarGrupo(grup: String):
 var grupo_anterior: String = ""  # Variable para almacenar el valor anterior
 
 func _process(delta):
+	
 	if GlovalVar.grupo != grupo_anterior:  # Compara el valor actual con el anterior
 		grupos()
 		grupo_anterior = GlovalVar.grupo  # Actualiza el valor anterior para la próxima comparación
 	
 func grupos():
-	if GlovalVar.grupo == "enemigo":
+	if usoDePlayer == true:
+		removerGrupo()
+		add_to_group("")
+	elif GlovalVar.grupo == "enemigo":
 		removerGrupo()
 		asignarGrupo("enemigo")
-	if GlovalVar.grupo == "objetos":
+	elif GlovalVar.grupo == "objetos":
 		removerGrupo()
 		asignarGrupo("objetos")
-	

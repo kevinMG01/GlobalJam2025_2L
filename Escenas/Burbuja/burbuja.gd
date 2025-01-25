@@ -28,9 +28,9 @@ var habRecolectada = {
 @onready var audio_player = $AudioStreamPlayer2D
 
 var puntosDeInstanciacion = [
-	Vector2(200, 300),  # Primer punto
-	Vector2(400, 300),  # Segundo punto
-	Vector2(600, 300)   # Tercer punto
+	Vector2(-126, -114),  # Primer punto
+	Vector2(-2, -146),  # Segundo punto
+	Vector2(116, -107)   # Tercer punto
 ]
 
 func _ready():
@@ -44,14 +44,13 @@ func muerte():
 
 func _physics_process(delta):
 	$AnimatedSprite2D.rotation_degrees += 1
-	
-	
+	#--------------------
+	if obtenerCantidadObjetos() >= 3 and Input.is_action_just_pressed("ui_up"):  # "ui_accept" es la tecla "Enter", pero puedes cambiarla a "f" si lo deseas
+		instanciarObjetos()
 	
 	if $escudo2.visible == true:
 		for i in 1:
 			$animacioEscudo.start()
-		
-
 
 	if habilidad > 0 :
 		if Input.is_action_just_pressed("ui_accept"):
@@ -81,6 +80,68 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+
+func recolectarProtector(item : String):
+	if item in objetosDeProteccion:
+		objetosDeProteccion[item] += 1
+
+func instanciarObjetos():
+	var objetosDisponibles = []
+
+	# Crear lista de objetos disponibles (solo aquellos con cantidad > 0)
+	for objeto in objetosDeProteccion.keys():
+		if objetosDeProteccion[objeto] > 0:
+			objetosDisponibles.append(objeto)
+
+	# Instanciar los objetos seleccionados en los puntos fijos
+	var objetosSeleccionados = []
+	var puntosInstanciados = 0
+
+	# Mientras tengamos puntos disponibles y objetos para instanciar
+	for objeto in objetosDisponibles:
+		while objetosDeProteccion[objeto] > 0 and puntosInstanciados < 3:
+			var objetoInstanciado = cargarObjeto(objeto)
+			if objetoInstanciado:
+				# Instanciamos el objeto en el siguiente punto disponible
+				var instancia = objetoInstanciado.instantiate()
+				instancia.usoDePlayer = true
+				add_child(instancia)
+				instancia.position = puntosDeInstanciacion[puntosInstanciados]
+
+				# Aumentamos el contador de puntos instanciados
+				puntosInstanciados += 1
+				restarObjeto(objeto)  # Restamos el objeto instanciado
+			if puntosInstanciados >= 3:
+				break
+
+	# Si hemos instanciado 3 objetos, terminamos el proceso
+	if puntosInstanciados < 3:
+		print("No se pudieron instanciar 3 objetos debido a la cantidad disponible.")
+
+
+func cargarObjeto(nombre: String) -> PackedScene:
+	if nombre == "roca":
+		return roca
+	elif nombre == "cuchilloCoc":
+		return cuchillo_coc
+	elif nombre == "aguja":
+		return aguja
+	elif nombre == "cuchillo":
+		return cuchillo
+	return null
+
+# Función para restar 1 de la lista de objetosDeProteccion
+func restarObjeto(nombre: String):
+	if nombre in objetosDeProteccion and objetosDeProteccion[nombre] > 0:
+		objetosDeProteccion[nombre] -= 1
+
+# Función que devuelve la cantidad total de objetos disponibles
+func obtenerCantidadObjetos() -> int:
+	var total = 0
+	for cantidad in objetosDeProteccion.values():
+		total += cantidad
+	return total
+#error ; function " cantidadObjetos" has the same name as a previously declared variable
 func activarHabilidad():
 	if habRecolectada.escudo ==false:
 		$escudo.position = Vector2(0, 200)
@@ -92,15 +153,6 @@ func activarHabilidad():
 	elif habRecolectada.velocidad ==true:
 		SPEED =habVeloc
 
-func recolectarProtector(item : String):
-	if item == "roca":
-		objetosDeProteccion.roca += 1
-	if item == "cuchilloCoc":
-		objetosDeProteccion.cuchilloCoc += 1
-	if item == "aguja":
-		objetosDeProteccion.aguja += 1
-	if item == "cuchillo":
-		objetosDeProteccion.cuchillo += 1
 
 func spawnDefenza():
 	if cantidadObjetos >=3:
