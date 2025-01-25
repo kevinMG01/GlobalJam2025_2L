@@ -24,11 +24,19 @@ var habRecolectada = {
 }
 
 
+@onready var audio_player = $AudioStreamPlayer2D
+
 func _ready():
 	activarHabilidad()
+	audio_player.connect("finished", muerte)
+
+func muerte():
+	GlovalVar.derota = true
+	get_tree().paused = true
+	self.queue_free()
 
 func _physics_process(delta):
-	rotation_degrees += 1
+	$AnimatedSprite2D.rotation_degrees += 1
 	if $escudo2.visible == true:
 		for i in 1:
 			$animacioEscudo.start()
@@ -102,9 +110,11 @@ func _on_detector_body_entered(body):
 	# derota
 	if body.is_in_group("enemigo"):
 		$AudioStreamPlayer2D.play()
-		GlovalVar.derota = true
-		get_tree().paused = true
-		self.queue_free()
+		$AnimatedSprite2D.play("explocion")
+		$AnimatedSprite2D.animation = "explocion"
+		#GlovalVar.derota = true
+		#get_tree().paused = true
+		#self.queue_free()
 
 	if body.is_in_group("velocidad"):
 		habRecolectada.velocidad = true
@@ -140,3 +150,8 @@ func _on_animacio_escudo_timeout():
 		$escudo2.scale = Vector2(1.2, 1.2)
 	if ani == true:
 		$escudo2.scale = Vector2(0.2, 1)
+
+
+
+
+	

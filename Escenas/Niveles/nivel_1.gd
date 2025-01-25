@@ -12,11 +12,10 @@ var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
 var cantidadObjetos = 2
 
 var tiempo = 30
-#45
-#50
+
 @onready var telonOscuro = $telonOscuro
 var opacity = 1.0
-var fade_speed = 0.2  # Velocidad de la disminución de opacidad
+var fade_speed = 0.3  # Velocidad de la disminución de opacidad
 
 func _ready():
 	randomize()
@@ -64,8 +63,7 @@ func _on_tiempo_spawn_timeout():
 	cantidadObjetos = num
 	var tim = randf_range(0.5, 1.3)
 	$tiempoSpawn.wait_time = tim
-	#n2: 1-4 . t: 1.2 . 
-	
+
 
 
 func _on_viento_timeout():

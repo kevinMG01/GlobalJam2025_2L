@@ -53,9 +53,8 @@ func _on_tiempo_spawn_timeout() -> void:
 		spawn(cuchillo)
 	var num = randi_range(1,2)
 	cantidadObjetos = num
-	var tim = randf_range(0.5, 1.3)
+	var tim = randf_range(0.3, 1.1)
 	$tiempoSpawn.wait_time = tim
-	#n2: 1-4 . t: 1.2 . 
 
 
 func _on_viento_timeout() -> void:

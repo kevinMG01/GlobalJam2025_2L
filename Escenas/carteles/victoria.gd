@@ -28,3 +28,7 @@ func _on_sigiente_pressed() -> void:
 		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_2.tscn")
 	if GlovalVar.nivelActual == 2:
 		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_3.tscn")
+	if GlovalVar.nivelActual == 3:
+		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_4.tscn")
+	if GlovalVar.nivelActual == 4:
+		get_tree().change_scene_to_file("res://Escenas/Niveles/nivel_5.tscn")
