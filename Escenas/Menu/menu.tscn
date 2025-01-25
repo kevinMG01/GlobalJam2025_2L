@@ -164,7 +164,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rh3ws")
 text = "Salir
 "
 
+[node name="burbijitas" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(32.8185, 757.906)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(1285.89, 816.951)
+
 [connection signal="timeout" from="timPlay" to="." method="_on_tim_play_timeout"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="timeout" from="burbijitas" to="." method="_on_burbijitas_timeout"]
