@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcl4ievo5jolp"]
+
+[ext_resource type="Texture2D" uid="uid://dxblvcffsr1a4" path="res://Sprite/Burbuja/burbuja_violeta2.png" id="1_qbk22"]
+[ext_resource type="Texture2D" uid="uid://o4ysf8e5vgf4" path="res://Sprite/Burbuja/explotar_violeta.png" id="2_pbwvn"]
+[ext_resource type="Script" path="res://Escenas/burbujaMenu/animated_sprite_2d.gd" id="3_jjncr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbfx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qbk22")
+}],
+"loop": true,
+"name": &"bu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pbwvn")
+}],
+"loop": true,
+"name": &"explocion",
+"speed": 5.0
+}]
+
+[node name="burbujaVioleta" type="AnimatedSprite2D"]
+position = Vector2(-4.76837e-07, -1.78814e-06)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_sbfx7")
+animation = &"bu"
+script = ExtResource("3_jjncr")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.07
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

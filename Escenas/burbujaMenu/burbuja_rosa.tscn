@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr7ojygkaq8gj"]
+
+[ext_resource type="Texture2D" uid="uid://d2qlnlvxf764g" path="res://Sprite/Burbuja/burbuja_rosa2_.png" id="1_hijr3"]
+[ext_resource type="Texture2D" uid="uid://byu5laqv6bhxe" path="res://Sprite/Burbuja/explotar_rosa.png" id="2_tdwd6"]
+[ext_resource type="Script" path="res://Escenas/burbujaMenu/burbuja_rosa.gd" id="3_gylon"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8e6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hijr3")
+}],
+"loop": true,
+"name": &"bu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tdwd6")
+}],
+"loop": true,
+"name": &"explocion",
+"speed": 5.0
+}]
+
+[node name="burbujaRosa" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_o8e6c")
+animation = &"bu"
+script = ExtResource("3_gylon")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.07
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
