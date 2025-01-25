@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 
 var roca = preload("res://Escenas/objetos/roca.tscn")
-var madera
-var piedra
+var aguja = preload("res://Escenas/objetos/agujas.tscn")
+var cuchillo_coc = preload("res://Escenas/objetos/cuchillo_coc.tscn")
+var cuchillo = preload("res://Escenas/objetos/cuchillo.tscn")
 
 
 var objetosDeProteccion = {
@@ -16,7 +17,7 @@ var cantidadObjetos = objetosDeProteccion.roca
 var habilidad = 0
 
 var SPEED = 550
-var habVeloc = 700
+var habVeloc = 820
 
 var habRecolectada = {
 	'velocidad': false,
@@ -25,6 +26,12 @@ var habRecolectada = {
 
 
 @onready var audio_player = $AudioStreamPlayer2D
+
+var puntosDeInstanciacion = [
+	Vector2(200, 300),  # Primer punto
+	Vector2(400, 300),  # Segundo punto
+	Vector2(600, 300)   # Tercer punto
+]
 
 func _ready():
 	activarHabilidad()
@@ -37,6 +44,9 @@ func muerte():
 
 func _physics_process(delta):
 	$AnimatedSprite2D.rotation_degrees += 1
+	
+	
+	
 	if $escudo2.visible == true:
 		for i in 1:
 			$animacioEscudo.start()
@@ -80,7 +90,7 @@ func activarHabilidad():
 	if habRecolectada.velocidad ==false:
 		SPEED = 550
 	elif habRecolectada.velocidad ==true:
-		SPEED = habilidad
+		SPEED =habVeloc
 
 func recolectarProtector(item : String):
 	if item == "roca":
@@ -150,8 +160,3 @@ func _on_animacio_escudo_timeout():
 		$escudo2.scale = Vector2(1.2, 1.2)
 	if ani == true:
 		$escudo2.scale = Vector2(0.2, 1)
-
-
-
-
-	
