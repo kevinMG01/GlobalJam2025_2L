@@ -96,6 +96,7 @@ theme_override_font_sizes/font_size = 40
 text = "     ADD"
 
 [node name="add" type="Panel" parent="der"]
+visible = false
 offset_right = 1284.0
 offset_bottom = 744.0
 

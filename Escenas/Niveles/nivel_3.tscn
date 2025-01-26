@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://13m7y73xf2y3"]
+[gd_scene load_steps=13 format=3 uid="uid://13m7y73xf2y3"]
 
 [ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="1_0bxph"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_3.gd" id="1_2b8yg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0exydsu1f8qw" path="res://Escenas/objetos/habilidad/escudo/escudo.tscn" id="6_clc3c"]
 [ext_resource type="PackedScene" uid="uid://cfwnuad631wv7" path="res://Escenas/objetos/habilidad/velocidad/velocidad.tscn" id="7_pid03"]
 [ext_resource type="Texture2D" uid="uid://cqe4lcpqo88e7" path="res://Sprite/fondo.png" id="8_pwyyu"]
+[ext_resource type="Texture2D" uid="uid://qfg1qkintpch" path="res://Sprite/fondos/fondo2025.png" id="9_iqct7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbomo"]
 size = Vector2(70, 1368)
@@ -20,6 +21,12 @@ size = Vector2(1415, 53.5)
 
 [node name="nivel_3" type="Node2D"]
 script = ExtResource("1_2b8yg")
+
+[node name="Fondo2025" type="Sprite2D" parent="."]
+modulate = Color(6.73831e-07, 0.434465, 0.440181, 1)
+position = Vector2(627, 338)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("9_iqct7")
 
 [node name="tiempoSpawn" type="Timer" parent="."]
 
