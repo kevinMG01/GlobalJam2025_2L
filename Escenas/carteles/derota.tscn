@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://2ds52qtg13pp"]
+[gd_scene load_steps=10 format=3 uid="uid://2ds52qtg13pp"]
 
 [ext_resource type="Script" path="res://Escenas/carteles/derota.gd" id="1_cvmly"]
 [ext_resource type="AudioStream" uid="uid://q2getqhrn1yc" path="res://sonidos/derrota.mp3" id="2_8pq2p"]
 [ext_resource type="Texture2D" uid="uid://bi1ghvkajjjpt" path="res://Sprite/fondos/Perdiste.png" id="2_dnbq7"]
 [ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="3_wusfn"]
-[ext_resource type="Texture2D" uid="uid://d2eydgtglrgyt" path="res://icon.svg" id="4_0nr1r"]
+[ext_resource type="Texture2D" uid="uid://c7ta8f3ah5se0" path="res://Sprite/fondos/DylanPerfil.png" id="4_wfco2"]
+[ext_resource type="Texture2D" uid="uid://cfeisdvkj52nq" path="res://Sprite/fondos/logoBYF.jpg" id="5_h3lb4"]
+[ext_resource type="Texture2D" uid="uid://d3k0ufutsrppk" path="res://Sprite/fondos/Que prefeirss.png" id="6_b2ujs"]
+[ext_resource type="Texture2D" uid="uid://8tvm75q3p7iu" path="res://Sprite/fondos/Resortera.png" id="7_qadlh"]
+[ext_resource type="Texture2D" uid="uid://dve28ety2jjds" path="res://Sprite/fondos/Zona segura.png" id="8_w8phy"]
 
 [node name="derota" type="Control"]
 process_mode = 2
@@ -73,10 +77,10 @@ text = "     ADD"
 offset_right = 1284.0
 offset_bottom = 744.0
 
-[node name="Icon" type="Sprite2D" parent="der/add"]
-position = Vector2(631.5, 393)
-scale = Vector2(10.0078, 5.98438)
-texture = ExtResource("4_0nr1r")
+[node name="DylanPerfil" type="Sprite2D" parent="der/add"]
+position = Vector2(632, 361)
+scale = Vector2(0.673, 0.673)
+texture = ExtResource("4_wfco2")
 
 [node name="add" type="TextureButton" parent="der/add"]
 layout_mode = 0
@@ -110,6 +114,26 @@ offset_right = 980.0
 offset_bottom = 164.0
 theme_override_font_sizes/font_size = 30
 text = "saltar"
+
+[node name="LogoByf" type="Sprite2D" parent="der/add"]
+position = Vector2(608, 134)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_h3lb4")
+
+[node name="QuePrefeirss" type="Sprite2D" parent="der/add"]
+position = Vector2(316, 534)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_b2ujs")
+
+[node name="Resortera" type="Sprite2D" parent="der/add"]
+position = Vector2(185, 296)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_qadlh")
+
+[node name="ZonaSegura" type="Sprite2D" parent="der/add"]
+position = Vector2(1053, 414)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_w8phy")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_8pq2p")
