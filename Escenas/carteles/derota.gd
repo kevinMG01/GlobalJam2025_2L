@@ -13,6 +13,9 @@ func _ready():
 	$der.visible = false
 	if GlovalVar.derota == false:
 		$der.visible = false
+	$publicidad.start(8)
+	$der/add/add.visible = false
+	$der/add/Label.visible = true
 
 
 
@@ -27,6 +30,7 @@ func _process(delta):
 		$Timer.wait_time = 0.5
 		$Timer.start()
 		visibleCartel = true
+	$der/add/Label.text = "Saltar " + str(int($publicidad.time_left))
 
 
 func posReintentar():
@@ -66,3 +70,9 @@ func _on_add_pressed() -> void:
 func _on_button_button_down() -> void:
 	OS.shell_open("https://drive.google.com/drive/u/0/folders/1j8spdrtPs864ualPiX0MgKuW_2TK_KHU")
 	pass # Replace with function body.
+
+
+func _on_publicidad_timeout() -> void:
+	$der/add/add.visible = true
+	$der/add/Label.visible = false
+	$publicidad.stop()

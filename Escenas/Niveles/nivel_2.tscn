@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlrldmrsh4f4m"]
+[gd_scene load_steps=12 format=3 uid="uid://dlrldmrsh4f4m"]
 
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_2.gd" id="1_5gu8i"]
 [ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="2_qxt0n"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="2_yvis4"]
 [ext_resource type="PackedScene" uid="uid://2ds52qtg13pp" path="res://Escenas/carteles/derota.tscn" id="3_36ul2"]
+[ext_resource type="AudioStream" uid="uid://b8wti220iewdq" path="res://sonidos/pantallaprincipal.mp3" id="5_bmtsp"]
+[ext_resource type="PackedScene" uid="uid://cfwnuad631wv7" path="res://Escenas/objetos/habilidad/velocidad/velocidad.tscn" id="6_xsuen"]
+[ext_resource type="PackedScene" uid="uid://c0exydsu1f8qw" path="res://Escenas/objetos/habilidad/escudo/escudo.tscn" id="7_mkkld"]
+[ext_resource type="Texture2D" uid="uid://cqe4lcpqo88e7" path="res://Sprite/fondo.png" id="8_jmii0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jdfrp"]
 size = Vector2(70, 1368)
@@ -58,8 +62,11 @@ autostart = true
 
 [node name="temporizador" type="Timer" parent="."]
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(630, 357)
+
 [node name="Burbuja" parent="." instance=ExtResource("2_yvis4")]
-position = Vector2(783, 333)
+position = Vector2(604, 619)
 
 [node name="textTiempo" type="Label" parent="."]
 offset_left = 568.0
@@ -74,8 +81,21 @@ text = "tiempo"
 
 [node name="derota" parent="." instance=ExtResource("3_36ul2")]
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(641, 598)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bmtsp")
+volume_db = -30.0
+pitch_scale = 0.66
+
+[node name="velocidad" parent="." instance=ExtResource("6_xsuen")]
+position = Vector2(614, -49)
+
+[node name="escudo" parent="." instance=ExtResource("7_mkkld")]
+position = Vector2(290, -668)
+
+[node name="telonOscuro" type="Sprite2D" parent="."]
+position = Vector2(648.625, 363.25)
+scale = Vector2(1.25777, 1.26396)
+texture = ExtResource("8_jmii0")
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]

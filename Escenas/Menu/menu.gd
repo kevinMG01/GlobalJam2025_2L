@@ -11,6 +11,24 @@ var cantidadObjetos = 3
 
 
 
+@onready var telonOscuro = $Poradas
+var opacity = 1.0
+var fade_speed = 0.7  # Velocidad de la disminución de opacidad
+var com = false
+
+
+func _ready() -> void:
+	$Timer.start()
+
+
+func _process(delta: float) -> void:
+	if com == true:
+		if opacity > 0:
+			opacity -= fade_speed * delta  # Decrece la opacidad según el tiempo
+			telonOscuro.modulate.a = opacity
+
+
+
 func _on_play_button_down():
 	$play.play()
 	$timPlay.start()
@@ -69,3 +87,8 @@ func _on_burbijitas_timeout() -> void:
 		spawn(burbujaVerde)
 	elif newObjeto == 4:
 		spawn(burbujaVerdoso)
+
+
+func _on_timer_timeout() -> void:
+	com = true
+	$Timer.stop()

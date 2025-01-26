@@ -20,6 +20,7 @@ var opacity = 1.0
 var fade_speed = 0.3  # Velocidad de la disminución de opacidad
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	GlovalVar.victoria = false
 	GlovalVar.spawnPlayer = false
 	GlovalVar.derota = false

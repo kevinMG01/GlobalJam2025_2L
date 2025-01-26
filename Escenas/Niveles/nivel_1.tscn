@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="6_kqpko"]
 [ext_resource type="PackedScene" uid="uid://2ds52qtg13pp" path="res://Escenas/carteles/derota.tscn" id="7_0m4y4"]
 [ext_resource type="Texture2D" uid="uid://cqe4lcpqo88e7" path="res://Sprite/fondo.png" id="9_ksywf"]
-[ext_resource type="PackedScene" uid="uid://cfwnuad631wv7" path="res://Escenas/objetos/habilidad/velocidad/velocidad.tscn" id="10_hoq1s"]
+[ext_resource type="AudioStream" uid="uid://b8wti220iewdq" path="res://sonidos/pantallaprincipal.mp3" id="11_mqwdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iakh"]
 size = Vector2(70, 1368)
@@ -34,7 +34,7 @@ scale = Vector2(1.02, 1.02)
 texture = ExtResource("3_srcqj")
 
 [node name="Burbuja" parent="." instance=ExtResource("1_jm478")]
-position = Vector2(639, 363)
+position = Vector2(616, 602)
 
 [node name="tiempoSpawn" type="Timer" parent="."]
 
@@ -70,10 +70,10 @@ position = Vector2(708, 740)
 shape = SubResource("RectangleShape2D_t81c6")
 
 [node name="habilidad" parent="." instance=ExtResource("3_kmv7y")]
-position = Vector2(548, 38)
+position = Vector2(596, -35)
 
 [node name="escudo" parent="." instance=ExtResource("4_xmtxx")]
-position = Vector2(517, -904)
+position = Vector2(884, -460)
 
 [node name="viento" type="Timer" parent="."]
 wait_time = 8.0
@@ -103,11 +103,13 @@ position = Vector2(648.625, 363.25)
 scale = Vector2(1.25777, 1.26396)
 texture = ExtResource("9_ksywf")
 
-[node name="velocidad" parent="." instance=ExtResource("10_hoq1s")]
-position = Vector2(382, 4)
-
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(628, 556)
+position = Vector2(633, 362)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_mqwdf")
+volume_db = -30.0
+pitch_scale = 0.66
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]

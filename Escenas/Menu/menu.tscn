@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3psyuukweuhh"]
+[gd_scene load_steps=20 format=3 uid="uid://3psyuukweuhh"]
 
 [ext_resource type="Script" path="res://Escenas/Menu/menu.gd" id="1_14p33"]
 [ext_resource type="Texture2D" uid="uid://byvc3024r0ema" path="res://Escenas/Menu/menu4.png" id="2_6ewu8"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://be5ei8etts8r8" path="res://sonidos/elecciondepantalla.mp3" id="3_5hdsg"]
 [ext_resource type="Texture2D" uid="uid://bq3uko150lcny" path="res://Escenas/Menu/vv.png" id="5_i3luu"]
 [ext_resource type="FontFile" uid="uid://cgcnqecqlbcaq" path="res://fuentes/PWBubbles.ttf" id="6_3woum"]
+[ext_resource type="Texture2D" uid="uid://dxcgkge0g566d" path="res://Sprite/fondos/poradas.png" id="7_nqb51"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnnmn"]
 
@@ -174,8 +175,16 @@ position = Vector2(32.8185, 757.906)
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(1285.89, 816.951)
 
+[node name="Poradas" type="Sprite2D" parent="."]
+position = Vector2(636.48, 352.334)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("7_nqb51")
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="timPlay" to="." method="_on_tim_play_timeout"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="burbijitas" to="." method="_on_burbijitas_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

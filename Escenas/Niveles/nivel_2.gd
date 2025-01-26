@@ -14,8 +14,12 @@ var cantidadObjetos = 2
 
 var tiempo = 50
 
+@onready var telonOscuro = $telonOscuro
+var opacity = 1.0
+var fade_speed = 0.3  # Velocidad de la disminución de opacidad
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	GlovalVar.victoria = false
 	GlovalVar.spawnPlayer = false
 	GlovalVar.derota = false
@@ -28,6 +32,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if opacity > 0:
+		opacity -= fade_speed * delta  # Decrece la opacidad según el tiempo
+		telonOscuro.modulate.a = opacity
 	if GlovalVar.spawnPlayer == true:
 		spawnPlayer()
 	$textTiempo.text = "Tiempo: " + str(int($temporizador.time_left))

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/pantallaprincipal.mp3-9cbd3084ffd57305cfc533c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

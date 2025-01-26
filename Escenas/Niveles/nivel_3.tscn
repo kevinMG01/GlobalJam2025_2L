@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://13m7y73xf2y3"]
+[gd_scene load_steps=12 format=3 uid="uid://13m7y73xf2y3"]
 
 [ext_resource type="PackedScene" uid="uid://6tsdj31d52xt" path="res://Escenas/carteles/victoria.tscn" id="1_0bxph"]
 [ext_resource type="Script" path="res://Escenas/Niveles/nivel_3.gd" id="1_2b8yg"]
 [ext_resource type="PackedScene" uid="uid://2ds52qtg13pp" path="res://Escenas/carteles/derota.tscn" id="2_178qa"]
 [ext_resource type="PackedScene" uid="uid://b3f5uesdnb1oh" path="res://Escenas/Burbuja/burbuja.tscn" id="2_woffo"]
+[ext_resource type="AudioStream" uid="uid://b8wti220iewdq" path="res://sonidos/pantallaprincipal.mp3" id="5_cojv8"]
+[ext_resource type="PackedScene" uid="uid://c0exydsu1f8qw" path="res://Escenas/objetos/habilidad/escudo/escudo.tscn" id="6_clc3c"]
+[ext_resource type="PackedScene" uid="uid://cfwnuad631wv7" path="res://Escenas/objetos/habilidad/velocidad/velocidad.tscn" id="7_pid03"]
+[ext_resource type="Texture2D" uid="uid://cqe4lcpqo88e7" path="res://Sprite/fondo.png" id="8_pwyyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbomo"]
 size = Vector2(70, 1368)
@@ -50,12 +54,15 @@ position = Vector2(-43, 6)
 position = Vector2(708, 740)
 shape = SubResource("RectangleShape2D_awpea")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(635, 346)
+
 [node name="viento" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
 
 [node name="Burbuja" parent="." instance=ExtResource("2_woffo")]
-position = Vector2(653, 508)
+position = Vector2(657, 614)
 
 [node name="detenerViento" type="Timer" parent="."]
 
@@ -73,6 +80,25 @@ text = "tiempo"
 [node name="victoria" parent="." instance=ExtResource("1_0bxph")]
 
 [node name="derota" parent="." instance=ExtResource("2_178qa")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cojv8")
+volume_db = -30.0
+pitch_scale = 0.66
+
+[node name="escudo" parent="." instance=ExtResource("6_clc3c")]
+position = Vector2(595, -7)
+
+[node name="velocidad" parent="." instance=ExtResource("7_pid03")]
+position = Vector2(94, -293)
+
+[node name="velocidad2" parent="." instance=ExtResource("7_pid03")]
+position = Vector2(917, -3873)
+
+[node name="telonOscuro" type="Sprite2D" parent="."]
+position = Vector2(648.625, 363.25)
+scale = Vector2(1.25777, 1.26396)
+texture = ExtResource("8_pwyyu")
 
 [connection signal="timeout" from="tiempoSpawn" to="." method="_on_tiempo_spawn_timeout"]
 [connection signal="timeout" from="viento" to="." method="_on_viento_timeout"]

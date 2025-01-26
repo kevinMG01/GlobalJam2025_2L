@@ -33,6 +33,11 @@ var puntosDeInstanciacion = [
 	Vector2(116, -107)   # Tercer punto
 ]
 
+
+
+var tiempoConectar = 0
+var ti = false
+
 func _ready():
 	activarHabilidad()
 	audio_player.connect("finished", muerte)
@@ -77,6 +82,12 @@ func _physics_process(delta):
 		velocity.y = direction_y * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+	
+	if tiempoConectar > 0:
+		tiempoConectar -= 0.01
+	elif ti == true:
+		colicionVisible()
+		ti = false
 	
 	move_and_slide()
 
@@ -160,14 +171,18 @@ func spawnDefenza():
 
 
 func colicionVisible():
-	if x == false:
+	if x == true:
 		$CollisionShape2D.disabled = true
-		$detector.disconnect("body_entered", _on_detector_body_entered)# error
-		$muerte.wait_time = 9
 		$muerte.start()
-	elif x == true:
+		if $detector.is_connected("body_entered", _on_detector_body_entered):
+			$detector.disconnect("body_entered", _on_detector_body_entered)
+		tiempoConectar = 0.7
+		ti = true
+		x = false
+	elif x == false:
+		$detector.connect("body_entered", _on_detector_body_entered)
 		$CollisionShape2D.disabled = false
-		
+
 
 
 func _on_detector_body_entered(body):
@@ -228,5 +243,6 @@ func _on_animacio_escudo_timeout():
 
 func _on_muerte_timeout() -> void:
 	colicionVisible()
+	print("asjkajskjaksjkajskjakjsajskasasasa")
 	$muerte.stop()
-	pass
+	
