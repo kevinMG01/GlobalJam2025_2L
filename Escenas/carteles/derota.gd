@@ -68,7 +68,7 @@ func _on_add_pressed() -> void:
 
 
 func _on_button_button_down() -> void:
-	OS.shell_open("https://drive.google.com/drive/u/0/folders/1j8spdrtPs864ualPiX0MgKuW_2TK_KHU")
+	OS.shell_open("https://x.com/TachuelaArt?t=0Huw-wuLeXIOaubtb4KyZg&s=08")
 	pass # Replace with function body.
 
 

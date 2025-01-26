@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2ds52qtg13pp"]
+[gd_scene load_steps=21 format=3 uid="uid://2ds52qtg13pp"]
 
 [ext_resource type="Script" path="res://Escenas/carteles/derota.gd" id="1_cvmly"]
 [ext_resource type="AudioStream" uid="uid://q2getqhrn1yc" path="res://sonidos/derrota.mp3" id="2_8pq2p"]
@@ -9,6 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://d3k0ufutsrppk" path="res://Sprite/fondos/Que prefeirss.png" id="6_b2ujs"]
 [ext_resource type="Texture2D" uid="uid://8tvm75q3p7iu" path="res://Sprite/fondos/Resortera.png" id="7_qadlh"]
 [ext_resource type="Texture2D" uid="uid://dve28ety2jjds" path="res://Sprite/fondos/Zona segura.png" id="8_w8phy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4l8b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kq1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgb27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gfqgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go8w3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l50as"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjjll"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbl8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_770pl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7vv4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kgmmn"]
 
 [node name="derota" type="Control"]
 process_mode = 2
@@ -101,10 +123,24 @@ text = "Regresar"
 
 [node name="Button" type="Button" parent="der/add"]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 74.0
-offset_right = 320.0
-offset_bottom = 165.0
+offset_left = 148.0
+offset_top = 78.0
+offset_right = 449.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4l8b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8kq1r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bgb27")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gfqgy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_go8w3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_l50as")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yjjll")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gbl8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_770pl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_x7vv4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kgmmn")
+text = "Perfil de X Dylan"
 
 [node name="Label" type="Label" parent="der/add"]
 layout_mode = 0
