@@ -16,6 +16,13 @@ func _ready():
 	$publicidad.start(8)
 	$der/add/add.visible = false
 	$der/add/Label.visible = true
+	$der/add/Button.visible = false
+	$der/add/DylanPerfil.visible = false
+
+	$der/add/LogoByf.visible = false
+	$der/add/QuePrefeirss.visible = false
+	$der/add/Resortera.visible = false
+	$der/add/ZonaSegura.visible = false
 
 
 
@@ -26,6 +33,18 @@ func _process(delta):
 	if GlovalVar.derota == true and not visibleCartel:
 		if ocultarReintentar == true:
 			$der/Panel/Reintentar.visible = false
+		var x = randi_range(1,5)
+		if x == 1:
+			$der/add/DylanPerfil.visible = true
+			$der/add/Button.visible = true
+		elif x == 2:
+			$der/add/LogoByf.visible = true
+		elif x == 3:
+			$der/add/QuePrefeirss.visible = true
+		elif x == 4:
+			$der/add/Resortera.visible = true
+		elif x == 5:
+			$der/add/ZonaSegura.visible = true
 		$der.visible = true
 		$Timer.wait_time = 0.5
 		$Timer.start()

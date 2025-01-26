@@ -96,7 +96,6 @@ theme_override_font_sizes/font_size = 40
 text = "     ADD"
 
 [node name="add" type="Panel" parent="der"]
-visible = false
 offset_right = 1284.0
 offset_bottom = 744.0
 
@@ -105,12 +104,29 @@ position = Vector2(632, 361)
 scale = Vector2(0.673, 0.673)
 texture = ExtResource("4_wfco2")
 
+[node name="LogoByf" type="Sprite2D" parent="der/add"]
+position = Vector2(668, 336)
+texture = ExtResource("5_h3lb4")
+
+[node name="QuePrefeirss" type="Sprite2D" parent="der/add"]
+position = Vector2(679, 360)
+texture = ExtResource("6_b2ujs")
+
+[node name="Resortera" type="Sprite2D" parent="der/add"]
+position = Vector2(664, 440)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("7_qadlh")
+
+[node name="ZonaSegura" type="Sprite2D" parent="der/add"]
+position = Vector2(670, 360)
+texture = ExtResource("8_w8phy")
+
 [node name="add" type="TextureButton" parent="der/add"]
 layout_mode = 0
-offset_left = 808.0
-offset_top = 92.0
-offset_right = 1169.0
-offset_bottom = 199.0
+offset_left = 720.0
+offset_top = 126.0
+offset_right = 1081.0
+offset_bottom = 233.0
 texture_normal = ExtResource("3_wusfn")
 
 [node name="Label" type="Label" parent="der/add/add"]
@@ -145,32 +161,12 @@ text = "Perfil de X Dylan"
 
 [node name="Label" type="Label" parent="der/add"]
 layout_mode = 0
-offset_left = 897.0
-offset_top = 122.0
-offset_right = 980.0
-offset_bottom = 164.0
+offset_left = 832.0
+offset_top = 154.0
+offset_right = 915.0
+offset_bottom = 196.0
 theme_override_font_sizes/font_size = 30
 text = "saltar"
-
-[node name="LogoByf" type="Sprite2D" parent="der/add"]
-position = Vector2(608, 134)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_h3lb4")
-
-[node name="QuePrefeirss" type="Sprite2D" parent="der/add"]
-position = Vector2(316, 534)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_b2ujs")
-
-[node name="Resortera" type="Sprite2D" parent="der/add"]
-position = Vector2(185, 296)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_qadlh")
-
-[node name="ZonaSegura" type="Sprite2D" parent="der/add"]
-position = Vector2(1053, 414)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_w8phy")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_8pq2p")
